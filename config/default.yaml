@@ -1,0 +1,25 @@
+# Pipeline configuration
+# Override by passing a custom config file: telecom-researcher run --config my_config.yaml
+
+quality:
+  gate_threshold: 0.7
+  max_revisions_per_stage: 3
+  max_pipeline_reruns: 1
+  self_critique_enabled: true
+  mock_peer_review_enabled: true
+
+cost_budget_total: 50.0
+cost_budget_per_stage:
+  literature_review: 5.0
+  ideation: 5.0
+  formulation: 5.0
+  experiments: 10.0
+  analysis: 5.0
+  writing: 15.0
+  review: 5.0
+
+human_checkpoint_after_ideation: true
+human_checkpoint_after_manuscript: true
+
+log_all_llm_calls: true
+verbose: false
