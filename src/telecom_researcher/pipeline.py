@@ -94,7 +94,7 @@ MODEL_ROLE_MAP: dict[int, str] = {
     3: "formulation",
     4: "experiments",
     5: "analysis",
-    6: "writing",
+    6: "manuscript",
 }
 
 
