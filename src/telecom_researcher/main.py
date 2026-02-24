@@ -11,7 +11,7 @@ import click
 from rich.console import Console
 from rich.logging import RichHandler
 
-from telecom_researcher.config import PipelineConfig, load_config
+from telecom_researcher.config import PipelineConfig, load_config, make_all_sonnet_config
 
 console = Console()
 
@@ -25,8 +25,12 @@ def setup_logging(verbose: bool = False) -> None:
     )
     # Suppress noisy third-party loggers
     logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("httpcore").setLevel(logging.WARNING)
     logging.getLogger("litellm").setLevel(logging.WARNING)
+    logging.getLogger("LiteLLM").setLevel(logging.WARNING)
     logging.getLogger("arxiv").setLevel(logging.WARNING)
+    logging.getLogger("openai").setLevel(logging.WARNING)
+    logging.getLogger("urllib3").setLevel(logging.WARNING)
 
 
 @click.group()
@@ -43,6 +47,7 @@ def cli() -> None:
 @click.option("--project-dir", type=click.Path(path_type=Path), default=None)
 @click.option("--verbose", is_flag=True, default=False)
 @click.option("--no-human-checkpoint", is_flag=True, default=False, help="Skip human checkpoints")
+@click.option("--all-sonnet", is_flag=True, default=False, help="Use Sonnet for all agents (cheaper testing)")
 def run(
     topic: str,
     config_path: Path | None,
@@ -51,6 +56,7 @@ def run(
     project_dir: Path | None,
     verbose: bool,
     no_human_checkpoint: bool,
+    all_sonnet: bool,
 ) -> None:
     """Run the full research pipeline for a given TOPIC."""
     setup_logging(verbose)
@@ -66,6 +72,9 @@ def run(
     config = load_config(config_path, overrides)
     if verbose:
         config.verbose = True
+    if all_sonnet:
+        config.models = make_all_sonnet_config()
+        console.print("[yellow]Using Claude Sonnet for all agents (test mode)[/yellow]")
 
     # Determine project dir
     proj_dir = project_dir or Path.cwd()

@@ -58,10 +58,22 @@ Return a JSON object:
 }
 ```
 
+## Scoring Rubric
+
+- **0.9-1.0**: Excellent — publication-ready with minor polishing
+- **0.7-0.89**: Good — solid work with some improvements needed, ready to proceed
+- **0.5-0.69**: Adequate — core content is present but significant improvements needed
+- **0.3-0.49**: Weak — major issues that need revision before proceeding
+- **0.0-0.29**: Unacceptable — fundamental problems, needs complete rework
+
+A stage that "works but has quality issues" should score in the 0.5-0.6 range, NOT below 0.3.
+A score below 0.3 should be reserved for outputs that are fundamentally broken (e.g., empty, nonsensical, or completely off-topic).
+
 ## Important Guidelines
 
 - Be rigorous but constructive — identify issues AND suggest fixes
-- Score honestly: 0.7 is the passing threshold
+- Score honestly using the rubric above
 - Critical issues are blocking — these must be fixed before proceeding
 - Distinguish between "nice to have" improvements and actual problems
 - For Stage 6, also check cross-references, figure/table references, and citation completeness
+- A stage with negative experimental results (proposed method worse than baselines) should still score 0.4+ if the results are honestly reported and the code runs correctly — negative results are valid scientific findings

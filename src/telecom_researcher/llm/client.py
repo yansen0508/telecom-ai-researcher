@@ -82,9 +82,22 @@ def _build_litellm_params(spec: ModelSpec) -> dict[str, Any]:
     elif spec.provider == "anthropic" and os.environ.get("ANTHROPIC_BASE_URL"):
         params["api_base"] = os.environ["ANTHROPIC_BASE_URL"]
 
-    # Custom API key from env var
+    # API key: explicit env var > provider-specific env var > litellm auto-detect
     if spec.api_key_env:
         api_key = os.environ.get(spec.api_key_env)
+        if api_key:
+            params["api_key"] = api_key
+    elif spec.provider == "anthropic":
+        # Try ANTHROPIC_API_KEY first, fall back to CLAUDE_CODE_OAUTH_TOKEN
+        api_key = os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("CLAUDE_CODE_OAUTH_TOKEN")
+        if api_key:
+            params["api_key"] = api_key
+    elif spec.provider == "openai":
+        api_key = os.environ.get("OPENAI_API_KEY")
+        if api_key:
+            params["api_key"] = api_key
+    elif spec.provider == "google":
+        api_key = os.environ.get("GEMINI_API_KEY")
         if api_key:
             params["api_key"] = api_key
 

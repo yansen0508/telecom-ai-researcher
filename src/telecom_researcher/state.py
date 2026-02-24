@@ -55,7 +55,7 @@ class ResearchGap(BaseModel):
 class LiteratureArtifact(BaseModel):
     """Output of Stage 1: Literature Review."""
 
-    topic: str
+    topic: str = ""
     search_queries: list[str] = Field(default_factory=list)
     papers: list[PaperSummary] = Field(default_factory=list)
     gap_analysis: list[ResearchGap] = Field(default_factory=list)

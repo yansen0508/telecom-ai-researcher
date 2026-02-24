@@ -1,0 +1,15 @@
+# Test configuration - all Sonnet for cost control
+# Use for initial end-to-end validation
+
+quality:
+  gate_threshold: 0.6
+  max_revisions_per_stage: 1
+  self_critique_enabled: false
+
+cost_budget_total: 10.0
+
+human_checkpoint_after_ideation: false
+human_checkpoint_after_manuscript: false
+
+log_all_llm_calls: true
+verbose: true

@@ -31,3 +31,13 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Stray output files from test runs
+figures/
+*.pdf
+*.bib
+*_simulation.py
+literature_review_*.json
+ideation_analysis.json
+problem_formulation.json
+quantum_diffusion_*.tex

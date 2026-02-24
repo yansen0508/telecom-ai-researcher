@@ -131,6 +131,22 @@ class PipelineConfig(BaseModel):
     verbose: bool = False
 
 
+def make_all_sonnet_config() -> ModelsConfig:
+    """Override all agents to use Claude Sonnet (for cost-effective testing)."""
+    sonnet = ModelSpec(model_id="anthropic/claude-sonnet-4-20250514", max_tokens=8192)
+    sonnet_long = ModelSpec(model_id="anthropic/claude-sonnet-4-20250514", max_tokens=16384)
+    return ModelsConfig(
+        literature_review=AgentModelConfig(primary=sonnet),
+        ideation=AgentModelConfig(primary=sonnet),
+        formulation=AgentModelConfig(primary=sonnet),
+        experiments=AgentModelConfig(primary=sonnet),
+        analysis=AgentModelConfig(primary=sonnet),
+        writing=AgentModelConfig(primary=sonnet_long),
+        reviewer=AgentModelConfig(primary=sonnet),
+        editor=AgentModelConfig(primary=sonnet),
+    )
+
+
 def load_config(config_path: Path | None = None, overrides: dict[str, Any] | None = None) -> PipelineConfig:
     """Load pipeline configuration from YAML file with optional overrides.
 

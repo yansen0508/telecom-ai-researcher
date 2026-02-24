@@ -26,8 +26,10 @@ class FigureGeneratorTool(Tool):
         return (
             "Generate a publication-quality figure using matplotlib. "
             "Provide the matplotlib Python code that creates the figure. "
-            "The code should use plt.savefig() to save to the specified filename. "
-            "IEEE style (3.5-inch width, serif font, 8pt) is applied automatically."
+            "Do NOT call plt.savefig() — the figure is saved automatically to `output_path`. "
+            "Available variables: plt (matplotlib.pyplot), np (numpy), output_path (str). "
+            "IEEE style (3.5-inch width, serif font, 8pt) is applied automatically. "
+            "Just create the plot (plt.plot, plt.xlabel, etc.) and it will be saved."
         )
 
     @property
@@ -70,12 +72,22 @@ class FigureGeneratorTool(Tool):
                 "__builtins__": __builtins__,
             }
 
+            # Clear any previous figure state
+            plt.close("all")
+
             # Execute the plotting code
             exec(code, exec_globals)
 
-            # If the code didn't call savefig, save the current figure
-            if not output_path.exists():
+            # Always save — whether or not the code called savefig
+            # This ensures we capture whatever was drawn
+            if plt.get_fignums():
                 plt.savefig(str(output_path), dpi=300, bbox_inches="tight")
+            elif not output_path.exists():
+                # Code may have saved directly; if not, nothing to save
+                return ToolResult(
+                    success=False,
+                    error="No figure was created. Make sure to call plt.plot(), plt.bar(), etc.",
+                )
 
             plt.close("all")
 

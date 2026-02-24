@@ -144,11 +144,14 @@ class Pipeline:
             state.stage_status = "running"
             save_state(state, self.run_dir)
 
+            # Pre-stage setup
+            if stage_num == 6:
+                self._setup_manuscript_dir()
+
             # Run the stage
             artifact = await self._run_stage(stage_num, state)
 
             # Save artifact
-            stage_key = list(STAGE_REGISTRY[stage_num]["artifact_cls"].__name__.lower().replace("artifact", "").strip())
             artifact_path = save_artifact(
                 artifact, self.run_dir, stage_num,
                 MODEL_ROLE_MAP.get(stage_num, f"stage_{stage_num}")
@@ -206,6 +209,23 @@ class Pipeline:
         console.print(f"Total cost: ${self.cost_tracker.total_cost:.2f}")
         console.print(f"Total tokens: {self.cost_tracker.total_tokens:,}")
         return state
+
+    def _setup_manuscript_dir(self) -> None:
+        """Prepare manuscript directory: copy figures from Stage 5."""
+        import shutil
+
+        manuscript_dir = self.run_dir / "state" / "06_manuscript"
+        manuscript_dir.mkdir(parents=True, exist_ok=True)
+
+        # Copy figures from analysis stage
+        figures_src = self.run_dir / "state" / "05_analysis" / "figures"
+        figures_dst = manuscript_dir / "figures"
+        if figures_src.exists():
+            figures_dst.mkdir(parents=True, exist_ok=True)
+            for fig_file in figures_src.glob("*"):
+                if fig_file.is_file():
+                    shutil.copy2(fig_file, figures_dst / fig_file.name)
+            logger.info(f"Copied {len(list(figures_dst.iterdir()))} figures to manuscript dir")
 
     async def _run_stage(
         self,
@@ -306,44 +326,79 @@ class Pipeline:
         model_used: str,
     ) -> BaseModel:
         """Parse agent output content into a typed artifact."""
+        metadata = StageMetadata(
+            stage_name=STAGE_NAMES[stage_num],
+            model_used=model_used,
+        ).model_dump()
+
         try:
             json_str = self._extract_json(content)
             data = json.loads(json_str)
-
-            # Add metadata
-            data["metadata"] = StageMetadata(
-                stage_name=STAGE_NAMES[stage_num],
-                model_used=model_used,
-            ).model_dump()
-
+            data["metadata"] = metadata
             return artifact_cls.model_validate(data)
+        except json.JSONDecodeError as e:
+            logger.error(f"JSON parse error for stage {stage_num}: {e}")
+            logger.error(f"Raw content (first 3000 chars):\n{content[:3000]}")
         except Exception as e:
-            logger.error(f"Failed to parse artifact for stage {stage_num}: {e}")
-            logger.debug(f"Raw content:\n{content[:2000]}")
-            # Return empty artifact with error metadata
-            return artifact_cls.model_validate({
-                "metadata": StageMetadata(
-                    stage_name=STAGE_NAMES[stage_num],
-                    model_used=model_used,
-                ).model_dump(),
-            })
+            logger.error(f"Artifact validation error for stage {stage_num}: {e}")
+            logger.error(f"Raw content (first 1000 chars):\n{content[:1000]}")
+
+        # Fallback: try to construct artifact with minimal fields
+        try:
+            # Build fallback data with all fields at defaults
+            fallback_data: dict[str, Any] = {"metadata": metadata}
+            # For LiteratureArtifact, inject the topic from pipeline state
+            if hasattr(artifact_cls, "model_fields") and "topic" in artifact_cls.model_fields:
+                fallback_data["topic"] = "parse_error"
+            return artifact_cls.model_validate(fallback_data)
+        except Exception:
+            # Last resort: return with model_construct (skip validation)
+            return artifact_cls.model_construct(metadata=metadata)
 
     @staticmethod
     def _extract_json(text: str) -> str:
-        """Extract JSON from text that may contain markdown code fences."""
+        """Extract JSON from text that may contain markdown code fences or surrounding text."""
         text = text.strip()
-        # Remove markdown code fences
-        if text.startswith("```"):
-            lines = text.split("\n")
-            # Remove first and last line if they're fences
-            if lines[0].startswith("```"):
-                lines = lines[1:]
-            if lines and lines[-1].strip() == "```":
-                lines = lines[:-1]
-            text = "\n".join(lines)
-        # Find the first { and last }
+
+        # Try 1: Remove markdown code fences (```json ... ```)
+        if "```" in text:
+            import re
+            # Match ```json or ``` blocks
+            pattern = r"```(?:json)?\s*\n?(.*?)```"
+            matches = re.findall(pattern, text, re.DOTALL)
+            for match in matches:
+                match = match.strip()
+                if match.startswith("{"):
+                    return match
+
+        # Try 2: Find the outermost JSON object by brace matching
         start = text.find("{")
+        if start != -1:
+            depth = 0
+            in_string = False
+            escape = False
+            for i in range(start, len(text)):
+                c = text[i]
+                if escape:
+                    escape = False
+                    continue
+                if c == "\\":
+                    escape = True
+                    continue
+                if c == '"':
+                    in_string = not in_string
+                    continue
+                if in_string:
+                    continue
+                if c == "{":
+                    depth += 1
+                elif c == "}":
+                    depth -= 1
+                    if depth == 0:
+                        return text[start : i + 1]
+
+        # Try 3: Just find first { and last }
         end = text.rfind("}")
-        if start != -1 and end != -1:
+        if start != -1 and end != -1 and end > start:
             return text[start : end + 1]
         return text

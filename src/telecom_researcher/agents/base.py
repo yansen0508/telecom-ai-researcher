@@ -77,6 +77,12 @@ class BaseAgent:
         if feedback:
             parts.append(f"## Reviewer Feedback (address these issues)\n\n{feedback}")
         parts.append(f"## Task\n\n{user_message}")
+        parts.append(
+            "## CRITICAL OUTPUT REQUIREMENT\n\n"
+            "After you have finished using tools, your FINAL response must be ONLY a valid JSON object. "
+            "Do NOT include any explanation, markdown, or text before or after the JSON. "
+            "Start your final response with { and end with }."
+        )
         full_user_message = "\n\n---\n\n".join(parts)
 
         messages: list[dict[str, Any]] = [
@@ -100,12 +106,26 @@ class BaseAgent:
 
             # Check if the model wants to use tools
             if response["tool_calls"]:
-                # Append assistant message with tool calls
-                assistant_msg: dict[str, Any] = {"role": "assistant", "content": response["content"]}
-                assistant_msg["tool_calls"] = response["tool_calls"]
+                # Build assistant message with tool calls in OpenAI format
+                tool_calls_formatted = [
+                    {
+                        "id": tc["id"],
+                        "type": "function",
+                        "function": {
+                            "name": tc["function"]["name"],
+                            "arguments": tc["function"]["arguments"],
+                        },
+                    }
+                    for tc in response["tool_calls"]
+                ]
+                assistant_msg: dict[str, Any] = {
+                    "role": "assistant",
+                    "content": response["content"] or None,
+                    "tool_calls": tool_calls_formatted,
+                }
                 messages.append(assistant_msg)
 
-                # Execute each tool call
+                # Execute each tool call and append results
                 for tc in response["tool_calls"]:
                     func_name = tc["function"]["name"]
                     try:
