@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "telecom-ai-researcher"
+version = "0.1.0"
+description = "Automated AI research pipeline for telecom/ML papers"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "litellm>=1.50.0",
+    "pydantic>=2.10.0",
+    "pyyaml>=6.0",
+    "httpx>=0.28.0",
+    "arxiv>=2.1.0",
+    "pymupdf>=1.24.0",
+    "rich>=13.9.0",
+    "click>=8.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24.0",
+    "ruff>=0.8.0",
+]
+dl = [
+    "torch>=2.0",
+    "transformers>=4.40",
+]
+
+[project.scripts]
+telecom-researcher = "telecom_researcher.main:cli"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/telecom_researcher"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
