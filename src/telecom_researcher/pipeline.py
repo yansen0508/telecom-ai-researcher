@@ -37,6 +37,7 @@ from telecom_researcher.state import (
     PipelineState,
     ReviewResult,
     StageMetadata,
+    load_state,
     save_artifact,
     save_state,
 )
@@ -105,22 +106,37 @@ class Pipeline:
         self.config = config
         self.run_dir = run_dir
         self.cost_tracker = CostTracker()
-        self._tool_registry = self._build_tool_registry()
+        self._tool_registry = self._build_tool_registry(stage_num=0)
 
-    def _build_tool_registry(self) -> ToolRegistry:
-        """Create and register all available tools."""
+    def _build_tool_registry(self, stage_num: int = 0) -> ToolRegistry:
+        """Create and register all available tools.
+
+        The working directory for read_file/write_file is set per-stage so that
+        relative paths resolve to the correct stage directory.
+        """
         registry = ToolRegistry()
 
         code_dir = self.run_dir / "state" / "04_experiments" / "code"
         figures_dir = self.run_dir / "state" / "05_analysis" / "figures"
+        manuscript_dir = self.run_dir / "state" / "06_manuscript"
+
+        # Stage-specific working directory for read_file/write_file
+        if stage_num == 4:
+            file_working_dir = code_dir
+        elif stage_num == 5:
+            file_working_dir = self.run_dir / "state" / "05_analysis"
+        elif stage_num == 6:
+            file_working_dir = manuscript_dir
+        else:
+            file_working_dir = self.run_dir / "state"
 
         registry.register(ArxivSearchTool())
         registry.register(SemanticScholarSearchTool())
         registry.register(CodeExecutorTool(working_dir=code_dir))
-        registry.register(LatexCompilerTool(working_dir=self.run_dir / "state" / "06_manuscript"))
+        registry.register(LatexCompilerTool(working_dir=manuscript_dir))
         registry.register(FigureGeneratorTool(output_dir=figures_dir))
-        registry.register(ReadFileTool())
-        registry.register(WriteFileTool())
+        registry.register(ReadFileTool(working_dir=file_working_dir))
+        registry.register(WriteFileTool(working_dir=file_working_dir))
 
         return registry
 
@@ -129,7 +145,22 @@ class Pipeline:
         run_id = self.run_dir.name
 
         # Initialize or load state
-        state = PipelineState(run_id=run_id, topic=topic)
+        if start_stage > 1:
+            # Resuming: load previous state to preserve artifacts from earlier stages
+            try:
+                state = load_state(self.run_dir)
+                state.topic = topic  # Update topic in case user modified it
+                console.print(
+                    f"[green]Loaded previous state: {len(state.artifacts)} artifacts found[/green]"
+                )
+            except Exception:
+                console.print(
+                    "[yellow]Warning: Could not load previous state, starting fresh[/yellow]"
+                )
+                state = PipelineState(run_id=run_id, topic=topic)
+        else:
+            state = PipelineState(run_id=run_id, topic=topic)
+
         save_state(state, self.run_dir)
 
         console.print(Panel(f"[bold]Telecom AI Researcher[/bold]\nTopic: {topic}\nRun: {run_id}"))
@@ -266,6 +297,9 @@ class Pipeline:
         feedback: str = "",
     ) -> BaseModel:
         """Run a single pipeline stage and return the artifact."""
+        # Rebuild tool registry with stage-specific working directories
+        self._tool_registry = self._build_tool_registry(stage_num)
+
         stage_info = STAGE_REGISTRY[stage_num]
         artifact_cls = stage_info["artifact_cls"]
         agent_cls = stage_info["agent_cls"]

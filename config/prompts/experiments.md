@@ -88,9 +88,20 @@ This file runs fast (< 1 minute) and will be auto-executed by the pipeline.
 
 # Training loop must:
 # - Print epoch, train_loss, val_nmse every epoch
-# - Save best model based on val_nmse
+# - Save best model checkpoint when val_nmse improves (overwrite previous best)
 # - Use tqdm progress bars
 # - Handle MPS gracefully (fallback to CPU if MPS fails)
+#
+# CRITICAL: Real-time logging to training.log for monitoring via `tail -f training.log`
+# - import time, datetime at top
+# - At training start: write "STATUS: running" and model info to training.log
+# - After each epoch: append one line with format:
+#     [YYYY-MM-DD HH:MM:SS] Epoch N/100 | train_loss: X.XXXXXX | val_nmse: -X.XX dB | best: -X.XX dB | patience: N/10 | lr: X.XXe-XX | time: Xs
+# - When best model is saved, append " | ** saved best model **" to that epoch's log line
+# - On early stopping: log "Early stopping at epoch N"
+# - After each model completes: log "{model_name} training complete | best_val_nmse: X.XX dB | total_time: Xs"
+# - After ALL models trained: write "STATUS: completed" and "All models trained successfully."
+# - ALWAYS use f.flush() after each write for real-time tail -f support
 ```
 
 **Training data flow**:
@@ -131,11 +142,19 @@ This file runs fast (< 1 minute) and will be auto-executed by the pipeline.
 - Results must NOT be constant across SNR (this was a bug in previous runs)
 - ComplexUNet vs RealUNet difference should be observable (even if small)
 
+**CRITICAL: evaluate.py must also append to `training.log`** for real-time monitoring:
+- At start: append `[timestamp] === Starting Evaluation ===`
+- After each SNR evaluation: append `[timestamp] SNR=XdB | LS:-X.XX MMSE:-X.XX DNN:-X.XX Real:-X.XX Complex:-X.XX dB`
+- After saving results.json: append `[timestamp] STATUS: evaluation_completed`
+- Use `f.flush()` after each write
+
 ### File 5: `README.md` — Run Instructions
 
 Generate a clear README with:
 - Environment requirements (Python 3.13, PyTorch 2.10, numpy, tqdm)
 - Step-by-step run instructions
+- **`tail -f training.log` real-time monitoring instructions**
+- Explanation of training.log fields and STATUS markers
 - Expected runtime for each script
 - Expected output files
 - Troubleshooting tips (MPS issues, memory)

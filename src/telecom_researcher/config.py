@@ -39,7 +39,7 @@ class ModelsConfig(BaseModel):
     ideation: AgentModelConfig = Field(
         default_factory=lambda: AgentModelConfig(
             primary=ModelSpec(
-                model_id="anthropic/claude-opus-4-0-20250514",
+                model_id="anthropic/claude-opus-4-20250514",
                 max_tokens=16384,
             ),
         )
@@ -47,7 +47,7 @@ class ModelsConfig(BaseModel):
     formulation: AgentModelConfig = Field(
         default_factory=lambda: AgentModelConfig(
             primary=ModelSpec(
-                model_id="anthropic/claude-opus-4-0-20250514",
+                model_id="anthropic/claude-opus-4-20250514",
                 max_tokens=16384,
             ),
         )
@@ -65,7 +65,7 @@ class ModelsConfig(BaseModel):
     manuscript: AgentModelConfig = Field(
         default_factory=lambda: AgentModelConfig(
             primary=ModelSpec(
-                model_id="anthropic/claude-opus-4-0-20250514",
+                model_id="anthropic/claude-opus-4-20250514",
                 max_tokens=16384,
             ),
         )
@@ -73,7 +73,7 @@ class ModelsConfig(BaseModel):
     reviewer: AgentModelConfig = Field(
         default_factory=lambda: AgentModelConfig(
             primary=ModelSpec(
-                model_id="anthropic/claude-opus-4-0-20250514",
+                model_id="anthropic/claude-opus-4-20250514",
                 max_tokens=16384,
             ),
         )

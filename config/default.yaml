@@ -18,6 +18,57 @@ cost_budget_per_stage:
   manuscript: 20.0
   review: 5.0
 
+# Model assignments (Phase B: Claude + GPT-4o)
+models:
+  literature_review:
+    primary:
+      provider: anthropic
+      model_id: anthropic/claude-sonnet-4-20250514
+      temperature: 0.5
+      max_tokens: 8192
+  ideation:
+    primary:
+      provider: anthropic
+      model_id: anthropic/claude-sonnet-4-20250514
+      temperature: 0.7
+      max_tokens: 16384
+  formulation:
+    primary:
+      provider: openai
+      model_id: openai/gpt-4o
+      temperature: 0.4
+      max_tokens: 16384
+  experiments:
+    primary:
+      provider: openai
+      model_id: openai/gpt-4o
+      temperature: 0.3
+      max_tokens: 16384
+  analysis:
+    primary:
+      provider: anthropic
+      model_id: anthropic/claude-sonnet-4-20250514
+      temperature: 0.5
+      max_tokens: 8192
+  manuscript:
+    primary:
+      provider: anthropic
+      model_id: anthropic/claude-opus-4-20250514
+      temperature: 0.6
+      max_tokens: 16384
+  reviewer:
+    primary:
+      provider: anthropic
+      model_id: anthropic/claude-opus-4-20250514
+      temperature: 0.3
+      max_tokens: 8192
+  editor:
+    primary:
+      provider: anthropic
+      model_id: anthropic/claude-sonnet-4-20250514
+      temperature: 0.3
+      max_tokens: 8192
+
 human_checkpoint_after_ideation: true
 human_checkpoint_after_experiments: true
 human_checkpoint_after_manuscript: true

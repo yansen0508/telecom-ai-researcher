@@ -48,14 +48,14 @@ models:
   manuscript:
     primary:
       provider: anthropic
-      model_id: anthropic/claude-opus-4-0-20250514
+      model_id: anthropic/claude-opus-4-20250514
       temperature: 0.6
       max_tokens: 16384
 
   reviewer:
     primary:
       provider: anthropic
-      model_id: anthropic/claude-opus-4-0-20250514
+      model_id: anthropic/claude-opus-4-20250514
       temperature: 0.3
       max_tokens: 8192
 

@@ -67,6 +67,7 @@ def run(
         overrides["project_dir"] = str(project_dir)
     if no_human_checkpoint:
         overrides["human_checkpoint_after_ideation"] = False
+        overrides["human_checkpoint_after_experiments"] = False
         overrides["human_checkpoint_after_manuscript"] = False
 
     config = load_config(config_path, overrides)

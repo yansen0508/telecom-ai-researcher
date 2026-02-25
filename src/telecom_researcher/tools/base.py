@@ -100,6 +100,9 @@ class ToolRegistry:
 # --- Concrete tools: read_file and write_file (always available) ---
 
 class ReadFileTool(Tool):
+    def __init__(self, working_dir: Any | None = None):
+        self._working_dir = working_dir
+
     @property
     def name(self) -> str:
         return "read_file"
@@ -121,13 +124,19 @@ class ReadFileTool(Tool):
     async def execute(self, *, path: str) -> ToolResult:
         try:
             from pathlib import Path
-            content = Path(path).read_text(encoding="utf-8")
+            p = Path(path)
+            if not p.is_absolute() and self._working_dir:
+                p = self._working_dir / p
+            content = p.read_text(encoding="utf-8")
             return ToolResult(success=True, data=content)
         except Exception as e:
             return ToolResult(success=False, error=str(e))
 
 
 class WriteFileTool(Tool):
+    def __init__(self, working_dir: Any | None = None):
+        self._working_dir = working_dir
+
     @property
     def name(self) -> str:
         return "write_file"
@@ -151,8 +160,10 @@ class WriteFileTool(Tool):
         try:
             from pathlib import Path
             p = Path(path)
+            if not p.is_absolute() and self._working_dir:
+                p = self._working_dir / p
             p.parent.mkdir(parents=True, exist_ok=True)
             p.write_text(content, encoding="utf-8")
-            return ToolResult(success=True, data=f"Written {len(content)} chars to {path}")
+            return ToolResult(success=True, data=f"Written {len(content)} chars to {p}")
         except Exception as e:
             return ToolResult(success=False, error=str(e))
