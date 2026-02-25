@@ -51,15 +51,24 @@ This file runs fast (< 1 minute) and will be auto-executed by the pipeline.
 # K = 64 subcarriers
 # P = 16 pilots (comb-type, every 4th subcarrier)
 # L = 8 channel taps, exponential PDP
-# N_train = 5000, N_test = 1000
-# SNR_range = [0, 5, 10, 15, 20, 25] dB
+# SNR_range = [5, 10, 15, 20, 25] dB (NO 0dB)
 # Modulation: QPSK
-
+#
+# Training data: 5000 total samples, stratified across SNR levels
+#   - 1000 samples per SNR × 5 SNR levels = 5000 total
+#   - Concatenate all SNRs into single train_data.npz and SHUFFLE
+#   - Shape: h_true [5000, 2, K], h_ls [5000, 2, K]
+#
+# Test data: 500 total samples, stratified across SNR levels
+#   - 100 samples per SNR × 5 SNR levels
+#   - Save as separate files: test_data_{snr}dB.npz
+#   - Shape per file: h_true [100, 2, K], h_ls [100, 2, K]
+#
 # Must generate and save:
-# 1. h_true: [N, K] complex — true channel frequency response
-# 2. h_ls: [N, K] complex — LS estimates (noisy, at each SNR)
+# 1. h_true: [N, 2, K] — true channel (real format: [Re, Im])
+# 2. h_ls: [N, 2, K] — LS estimates (real format)
 # 3. pilot_mask: [K] boolean — which subcarriers are pilots
-# 4. Save as .npz files: train_data.npz, test_data_{snr}dB.npz
+# 4. Save as .npz files: train_data.npz, test_data_{5,10,15,20,25}dB.npz
 ```
 
 **Channel generation procedure**:
@@ -112,7 +121,7 @@ This file runs fast (< 1 minute) and will be auto-executed by the pipeline.
 ### File 4: `evaluate.py` — Evaluation Script
 
 ```python
-# Must evaluate ALL methods at each SNR in [0, 5, 10, 15, 20, 25] dB:
+# Must evaluate ALL methods at each SNR in [5, 10, 15, 20, 25] dB:
 # 1. LS estimator (already in test data)
 # 2. MMSE estimator (compute R_hh from training data statistics)
 # 3. SimpleDNN (train on the fly or load checkpoint)

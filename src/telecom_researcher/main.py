@@ -61,7 +61,12 @@ def run(
     """Run the full research pipeline for a given TOPIC."""
     setup_logging(verbose)
 
-    # Load config
+    # Load config — auto-discover default.yaml if --config not specified
+    if config_path is None:
+        default_config = (project_dir or Path.cwd()) / "config" / "default.yaml"
+        if default_config.exists():
+            config_path = default_config
+
     overrides = {}
     if project_dir:
         overrides["project_dir"] = str(project_dir)
