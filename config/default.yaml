@@ -8,17 +8,18 @@ quality:
   self_critique_enabled: true
   mock_peer_review_enabled: true
 
-cost_budget_total: 50.0
+cost_budget_total: 80.0
 cost_budget_per_stage:
   literature_review: 5.0
   ideation: 5.0
-  formulation: 5.0
-  experiments: 10.0
+  formulation: 10.0
+  experiments: 20.0
   analysis: 5.0
-  writing: 15.0
+  manuscript: 20.0
   review: 5.0
 
 human_checkpoint_after_ideation: true
+human_checkpoint_after_experiments: true
 human_checkpoint_after_manuscript: true
 
 log_all_llm_calls: true

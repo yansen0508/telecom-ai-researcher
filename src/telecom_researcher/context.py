@@ -98,6 +98,18 @@ def build_stage_context(
                 f"{analysis_artifact.model_dump_json(indent=2)}"
             )
 
+    if stage_num == 4:
+        # Experimenter needs full ideation to know the complete scope and approach
+        if 2 in state.artifacts:
+            _, ideation_cls = STAGE_ARTIFACT_MAP[2]
+            ideation_artifact = load_artifact(
+                run_dir, state.artifacts[2], ideation_cls
+            )
+            parts.append(
+                "## Ideation (Full - for complete scope and approach)\n\n"
+                f"{ideation_artifact.model_dump_json(indent=2)}"
+            )
+
     if stage_num == 5:
         # Analyst needs the formulation to interpret results in context
         if 3 in state.artifacts:

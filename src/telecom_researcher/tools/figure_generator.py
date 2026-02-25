@@ -81,6 +81,12 @@ class FigureGeneratorTool(Tool):
             # Always save — whether or not the code called savefig
             # This ensures we capture whatever was drawn
             if plt.get_fignums():
+                # Enforce IEEE column width (3.5 inches)
+                fig = plt.gcf()
+                w, h = fig.get_size_inches()
+                if w > 3.6:
+                    fig.set_size_inches(3.5, h * 3.5 / w)
+                    logger.info(f"Resized figure from {w:.1f}\" to 3.5\" width for IEEE compliance")
                 plt.savefig(str(output_path), dpi=300, bbox_inches="tight")
             elif not output_path.exists():
                 # Code may have saved directly; if not, nothing to save

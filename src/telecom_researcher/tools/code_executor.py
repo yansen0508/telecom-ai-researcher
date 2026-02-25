@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 class CodeExecutorTool(Tool):
     """Execute Python code in a sandboxed subprocess with timeout."""
 
-    def __init__(self, working_dir: Path | None = None, timeout: int = 120):
+    def __init__(self, working_dir: Path | None = None, timeout: int = 300):
         self._working_dir = working_dir or Path(tempfile.gettempdir())
         self._timeout = timeout
 
@@ -29,9 +29,10 @@ class CodeExecutorTool(Tool):
     def description(self) -> str:
         return (
             "Execute Python code in a sandboxed subprocess. "
-            "The code runs as a standalone script with access to numpy, scipy, matplotlib, pandas. "
-            "Returns stdout and stderr. Use this to run simulations and generate results. "
-            "Always save results to files (JSON/numpy) rather than printing large outputs."
+            "The code runs as a standalone script with access to numpy, scipy, matplotlib, pandas, torch. "
+            "Returns stdout and stderr. Use this to run simulations, data generation, and model evaluation. "
+            "Always save results to files (JSON/numpy) rather than printing large outputs. "
+            "For long-running scripts (training), set timeout up to 1800 seconds."
         )
 
     @property
@@ -50,24 +51,24 @@ class CodeExecutorTool(Tool):
                 },
                 "timeout": {
                     "type": "integer",
-                    "description": f"Timeout in seconds (default: {120}, max: 600)",
-                    "default": 120,
+                    "description": f"Timeout in seconds (default: {300}, max: 1800)",
+                    "default": 300,
                 },
             },
             "required": ["code"],
         }
 
     async def execute(
-        self, *, code: str, filename: str = "script.py", timeout: int = 120
+        self, *, code: str, filename: str = "script.py", timeout: int = 300
     ) -> ToolResult:
-        timeout = min(timeout, 600)
+        timeout = min(timeout, 1800)
 
         # Write code to file
         code_path = self._working_dir / filename
         code_path.parent.mkdir(parents=True, exist_ok=True)
         code_path.write_text(code, encoding="utf-8")
 
-        # Build restricted environment
+        # Build environment — include conda/venv paths for PyTorch support
         env = {
             "PATH": os.environ.get("PATH", "/usr/bin:/bin:/usr/local/bin"),
             "HOME": os.environ.get("HOME", "/tmp"),
@@ -75,6 +76,12 @@ class CodeExecutorTool(Tool):
             "LANG": "en_US.UTF-8",
             # Allow matplotlib to work headless
             "MPLBACKEND": "Agg",
+            # Conda / venv support (needed for PyTorch import)
+            "VIRTUAL_ENV": os.environ.get("VIRTUAL_ENV", ""),
+            "CONDA_DEFAULT_ENV": os.environ.get("CONDA_DEFAULT_ENV", ""),
+            "CONDA_PREFIX": os.environ.get("CONDA_PREFIX", ""),
+            # MPS (Apple Silicon) memory management
+            "PYTORCH_MPS_HIGH_WATERMARK_RATIO": "0.0",
         }
 
         try:

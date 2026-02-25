@@ -9,6 +9,7 @@ quality:
 cost_budget_total: 10.0
 
 human_checkpoint_after_ideation: false
+human_checkpoint_after_experiments: false
 human_checkpoint_after_manuscript: false
 
 log_all_llm_calls: true

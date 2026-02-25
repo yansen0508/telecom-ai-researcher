@@ -62,7 +62,7 @@ class ModelsConfig(BaseModel):
             primary=ModelSpec(model_id="anthropic/claude-sonnet-4-20250514"),
         )
     )
-    writing: AgentModelConfig = Field(
+    manuscript: AgentModelConfig = Field(
         default_factory=lambda: AgentModelConfig(
             primary=ModelSpec(
                 model_id="anthropic/claude-opus-4-0-20250514",
@@ -117,13 +117,14 @@ class PipelineConfig(BaseModel):
             "formulation": 5.0,
             "experiments": 10.0,
             "analysis": 5.0,
-            "writing": 15.0,
+            "manuscript": 15.0,
             "review": 5.0,
         }
     )
 
     # Human checkpoints
     human_checkpoint_after_ideation: bool = True
+    human_checkpoint_after_experiments: bool = True
     human_checkpoint_after_manuscript: bool = True
 
     # Logging
@@ -141,7 +142,7 @@ def make_all_sonnet_config() -> ModelsConfig:
         formulation=AgentModelConfig(primary=sonnet),
         experiments=AgentModelConfig(primary=sonnet),
         analysis=AgentModelConfig(primary=sonnet),
-        writing=AgentModelConfig(primary=sonnet_long),
+        manuscript=AgentModelConfig(primary=sonnet_long),
         reviewer=AgentModelConfig(primary=sonnet),
         editor=AgentModelConfig(primary=sonnet),
     )

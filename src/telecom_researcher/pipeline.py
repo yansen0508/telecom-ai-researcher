@@ -84,7 +84,7 @@ STAGE_REGISTRY: dict[int, dict[str, Any]] = {
     6: {
         "artifact_cls": ManuscriptArtifact,
         "agent_cls": WriterAgent,
-        "tools": ["latex_compile", "read_file", "write_file"],
+        "tools": ["latex_compile", "read_file", "write_file", "arxiv_search"],
     },
 }
 
@@ -187,13 +187,23 @@ class Pipeline:
                 console.print(f"[green]Stage {stage_num} PASSED (score: {review.score:.2f})[/green]")
             else:
                 console.print(f"[red]Stage {stage_num} did not pass after max revisions (score: {review.score:.2f})[/red]")
+                # Critical failure halt: stop pipeline if experiments or analysis fail badly
+                if stage_num in (4, 5) and review.score < 0.4:
+                    state.stage_status = "failed"
+                    save_state(state, self.run_dir)
+                    console.print(
+                        f"[red bold]Critical failure in Stage {stage_num} (score={review.score:.2f} < 0.4). "
+                        f"Pipeline halted to prevent writing a paper based on failed experiments.[/red bold]"
+                    )
+                    console.print(f"[yellow]Fix the issues and resume with --start-stage {stage_num}[/yellow]")
+                    return state
 
             state.stage_status = "complete"
             state.total_cost = self.cost_tracker.total_cost
             state.total_tokens = self.cost_tracker.total_tokens
             save_state(state, self.run_dir)
 
-            # Human checkpoint
+            # Human checkpoint after ideation
             if stage_num == 2 and self.config.human_checkpoint_after_ideation:
                 console.print("\n[bold yellow]Human checkpoint: Review the selected idea before continuing.[/bold yellow]")
                 console.print("Press Enter to continue, or Ctrl+C to stop...")
@@ -203,6 +213,28 @@ class Pipeline:
                     state.stage_status = "paused"
                     save_state(state, self.run_dir)
                     console.print("[yellow]Pipeline paused. Resume later with --start-stage 3[/yellow]")
+                    return state
+
+            # Human checkpoint after experiments (for manual model training)
+            if stage_num == 4 and getattr(self.config, "human_checkpoint_after_experiments", False):
+                code_dir = self.run_dir / "state" / "04_experiments" / "code"
+                console.print("\n[bold yellow]{'='*60}[/bold yellow]")
+                console.print("[bold yellow]Human checkpoint: Experiment code has been generated.[/bold yellow]")
+                console.print(f"[bold yellow]Code directory: {code_dir}[/bold yellow]")
+                console.print("[bold yellow]Please run the following in your VSCode terminal:[/bold yellow]")
+                console.print(f"  [cyan]cd {code_dir}[/cyan]")
+                console.print(f"  [cyan]python data_generation.py[/cyan]")
+                console.print(f"  [cyan]python train_model.py[/cyan]")
+                console.print(f"  [cyan]python evaluate.py[/cyan]")
+                console.print("[bold yellow]After training completes, press Enter to continue.[/bold yellow]")
+                console.print("[bold yellow]Or press Ctrl+C to stop and resume later with --start-stage 5[/bold yellow]")
+                console.print(f"[bold yellow]{'='*60}[/bold yellow]\n")
+                try:
+                    input()
+                except (KeyboardInterrupt, EOFError):
+                    state.stage_status = "paused"
+                    save_state(state, self.run_dir)
+                    console.print("[yellow]Pipeline paused. Resume later with --start-stage 5[/yellow]")
                     return state
 
         console.print(f"\n[bold green]Pipeline complete![/bold green]")
