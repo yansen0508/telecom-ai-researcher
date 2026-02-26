@@ -20,6 +20,7 @@ venv/
 # Project outputs
 runs/
 !runs/.gitkeep
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/04_experiments/code/*.py
 
 # Environment
 .env
