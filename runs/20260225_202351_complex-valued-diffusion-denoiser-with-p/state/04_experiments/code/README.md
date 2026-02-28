@@ -271,17 +271,6 @@ If training produces NaN:
 - **Evaluation**: 15-25 minutes (200 DDIM steps × 5 SNR values)
 - **Total**: ~75-120 minutes
 
-## Citation
-
-```bibtex
-@article{complex_diffusion_ofdm2024,
-  title={Complex-Valued Diffusion Denoiser with Quantum Phase Rotation Layer for OFDM Channel Estimation},
-  author={Your Name},
-  journal={arXiv preprint},
-  year={2024}
-}
-```
-
 ## License
 
 MIT License - see LICENSE file for details.
