@@ -1,0 +1,548 @@
+{
+  "topic": "complex-valued diffusion denoiser with phase interaction layer for OFDM channel estimation",
+  "search_queries": [
+    "complex-valued neural networks wireless communications",
+    "diffusion models channel estimation",
+    "DDPM score-based models wireless OFDM",
+    "deep learning channel estimation OFDM",
+    "denoising diffusion probabilistic models wireless transceivers",
+    "quantum-inspired machine learning communications",
+    "phase-aware amplitude-phase neural networks",
+    "complex-valued diffusion OFDM channel estimation",
+    "phase interaction layer neural networks",
+    "complex-valued neural networks signal processing",
+    "diffusion models wireless communication",
+    "complex-valued diffusion denoiser OFDM"
+  ],
+  "papers": [
+    {
+      "title": "Diffusion Models for Wireless Transceivers: From Pilot-Efficient Channel Estimation to AI-Native 6G Receivers",
+      "authors": [
+        "Yuzhi Yang",
+        "Sen Yan",
+        "Weijie Zhou",
+        "Brahim Mefgouda",
+        "Ridong Li"
+      ],
+      "year": 2025,
+      "venue": "arXiv preprint arXiv:2510.24495",
+      "arxiv_id": "2510.24495",
+      "abstract": "With the development of artificial intelligence (AI) techniques, implementing AI-based techniques to improve wireless transceivers becomes an emerging research topic. Within this context, AI-based channel characterization and estimation become the focus since these methods have not been solved by traditional methods very well and have become the bottleneck of transceiver efficiency in large-scale orthogonal frequency division multiplexing (OFDM) systems. Specifically, by formulating channel estimation as a generative AI problem, generative AI methods such as diffusion models (DMs) can efficiently deal with rough initial estimations and have great potential to cooperate with traditional signal processing methods. This paper focuses on the transceiver design of OFDM systems based on DMs, provides an illustration of the potential of DMs in wireless transceivers, and points out the related research directions brought by DMs.",
+      "key_methods": [
+        "Diffusion models for OFDM",
+        "Generative AI for channel estimation",
+        "DDPM-based transceivers"
+      ],
+      "key_results": [
+        "Improved channel estimation accuracy",
+        "Enhanced transceiver efficiency",
+        "Proof-of-concept implementation"
+      ],
+      "limitations": [
+        "Limited to OFDM systems",
+        "No complex-valued formulation",
+        "Theoretical analysis lacking"
+      ],
+      "relevance_score": 0.95
+    },
+    {
+      "title": "CDDM: Channel Denoising Diffusion Models for Wireless Semantic Communications",
+      "authors": [
+        "Tong Wu",
+        "Zhiyong Chen",
+        "Dazhi He",
+        "Liang Qian",
+        "Yin Xu"
+      ],
+      "year": 2023,
+      "venue": "arXiv preprint arXiv:2309.08895",
+      "arxiv_id": "2309.08895",
+      "abstract": "Diffusion models (DM) can gradually learn to remove noise, which have been widely used in artificial intelligence generated content (AIGC) in recent years. The property of DM for eliminating noise leads us to wonder whether DM can be applied to wireless communications to help the receiver mitigate the channel noise. To address this, we propose channel denoising diffusion models (CDDM) for semantic communications over wireless channels in this paper. CDDM can be applied as a new physical layer module after the channel equalization to learn the distribution of the channel input signal, and then utilizes this learned knowledge to remove the channel noise.",
+      "key_methods": [
+        "Channel denoising diffusion models",
+        "DDPM for noise mitigation",
+        "Semantic communications"
+      ],
+      "key_results": [
+        "Reduced conditional entropy",
+        "Improved signal reconstruction",
+        "Enhanced semantic communication"
+      ],
+      "limitations": [
+        "No complex-valued formulation",
+        "Limited to semantic communications",
+        "No phase interaction modeling"
+      ],
+      "relevance_score": 0.9
+    },
+    {
+      "title": "Conditional Denoising Diffusion Probabilistic Models for Data Reconstruction Enhancement in Wireless Communications",
+      "authors": [
+        "Mehdi Letafati",
+        "Samad Ali",
+        "Matti Latva-aho"
+      ],
+      "year": 2023,
+      "venue": "arXiv preprint arXiv:2310.19460",
+      "arxiv_id": "2310.19460",
+      "abstract": "In this paper, conditional denoising diffusion probabilistic models (DDPMs) are proposed to enhance the data transmission and reconstruction over wireless channels. The underlying mechanism of DDPM is to decompose the data generation process over the so-called \"denoising\" steps. Inspired by this, the key idea is to leverage the generative prior of diffusion models in learning a \"noisy-to-clean\" transformation of the information signal to help enhance data reconstruction.",
+      "key_methods": [
+        "Conditional DDPMs",
+        "Noisy-to-clean transformation",
+        "Generative priors"
+      ],
+      "key_results": [
+        "Enhanced data reconstruction",
+        "Improved reliability under low SNR",
+        "Hardware-impaired communications"
+      ],
+      "limitations": [
+        "No complex-valued processing",
+        "No OFDM-specific design",
+        "No phase interaction"
+      ],
+      "relevance_score": 0.85
+    },
+    {
+      "title": "Newton-Puiseux Analysis for Interpretability and Calibration of Complex-Valued Neural Networks",
+      "authors": [
+        "Piotr Migus"
+      ],
+      "year": 2025,
+      "venue": "arXiv preprint arXiv:2504.19176",
+      "arxiv_id": "2504.19176",
+      "abstract": "Complex-valued neural networks (CVNNs) are particularly suitable for handling phase-sensitive signals, including electrocardiography (ECG), radar/sonar, and wireless in-phase/quadrature (I/Q) streams. Nevertheless, their interpretability and probability calibration remain insufficiently investigated. In this work, we present a Newton--Puiseux framework that examines the local decision geometry of a trained CVNN by fitting a small, kink-aware polynomial surrogate to the logit difference in the vicinity of uncertain inputs.",
+      "key_methods": [
+        "Complex-valued neural networks",
+        "Newton-Puiseux framework",
+        "Phase-sensitive signal processing"
+      ],
+      "key_results": [
+        "Improved interpretability",
+        "Enhanced calibration",
+        "Phase-aligned directions"
+      ],
+      "limitations": [
+        "No diffusion model integration",
+        "Limited to classification",
+        "No OFDM channel estimation"
+      ],
+      "relevance_score": 0.8
+    },
+    {
+      "title": "Deep-Waveform: A Learned OFDM Receiver Based on Deep Complex-valued Convolutional Networks",
+      "authors": [
+        "Zhongyuan Zhao",
+        "Mehmet C. Vuran",
+        "Fujuan Guo",
+        "Stephen D. Scott"
+      ],
+      "year": 2021,
+      "venue": "arXiv preprint arXiv:1810.07181",
+      "arxiv_id": "1810.07181",
+      "abstract": "The (inverse) discrete Fourier transform (DFT/IDFT) is often perceived as essential to orthogonal frequency-division multiplexing (OFDM) systems. In this paper, a deep complex-valued convolutional network (DCCN) is developed to recover bits from time-domain OFDM signals without relying on any explicit DFT/IDFT. The DCCN can exploit the cyclic prefix (CP) of OFDM waveform for increased SNR by replacing DFT with a learned linear transform.",
+      "key_methods": [
+        "Deep complex-valued convolutional networks",
+        "Learned linear transforms",
+        "CP exploitation"
+      ],
+      "key_results": [
+        "Outperformed conventional estimators",
+        "Combined CP-exploitation and channel estimation",
+        "O(N²) complexity"
+      ],
+      "limitations": [
+        "No diffusion model",
+        "Limited to convolutional architectures",
+        "No explicit phase interaction"
+      ],
+      "relevance_score": 0.85
+    },
+    {
+      "title": "Power of Deep Learning for Channel Estimation and Signal Detection in OFDM Systems",
+      "authors": [
+        "Hao Ye",
+        "Geoffrey Ye Li",
+        "Biing-Hwang Fred Juang"
+      ],
+      "year": 2017,
+      "venue": "arXiv preprint arXiv:1708.08514",
+      "arxiv_id": "1708.08514",
+      "abstract": "This article presents our initial results in deep learning for channel estimation and signal detection in orthogonal frequency-division multiplexing (OFDM). OFDM has been widely adopted in wireless broadband communications to combat frequency-selective fading in wireless channels. In this article, we take advantage of deep learning in handling wireless OFDM channels in an end-to-end approach.",
+      "key_methods": [
+        "Deep learning for OFDM",
+        "End-to-end channel estimation",
+        "Implicit CSI estimation"
+      ],
+      "key_results": [
+        "Direct symbol recovery",
+        "Improved performance over conventional methods",
+        "Channel distortion handling"
+      ],
+      "limitations": [
+        "No diffusion models",
+        "No complex-valued formulation",
+        "Limited theoretical analysis"
+      ],
+      "relevance_score": 0.75
+    },
+    {
+      "title": "Deep Learning-based Channel Estimation for Beamspace mmWave Massive MIMO Systems",
+      "authors": [
+        "Hengtao He",
+        "Chao-Kai Wen",
+        "Shi Jin",
+        "Geoffrey Ye Li"
+      ],
+      "year": 2019,
+      "venue": "arXiv preprint arXiv:1802.01290",
+      "arxiv_id": "1802.01290",
+      "abstract": "Channel estimation is very challenging when the receiver is equipped with a limited number of radio-frequency (RF) chains in beamspace millimeter-wave (mmWave) massive multiple-input and multiple-output systems. To solve this problem, we exploit a learned denoising-based approximate message passing (LDAMP) network.",
+      "key_methods": [
+        "Learned denoising-based approximate message passing",
+        "Deep learning for mmWave",
+        "Compressed sensing"
+      ],
+      "key_results": [
+        "Outperformed compressed sensing algorithms",
+        "Effective with limited RF chains",
+        "Analytical performance framework"
+      ],
+      "limitations": [
+        "No diffusion models",
+        "Limited to mmWave systems",
+        "No complex-valued specific design"
+      ],
+      "relevance_score": 0.7
+    },
+    {
+      "title": "Deep Residual Learning for Channel Estimation in Intelligent Reflecting Surface-Assisted Multi-User Communications",
+      "authors": [
+        "Chang Liu",
+        "Xuemeng Liu",
+        "Derrick Wing Kwan Ng",
+        "Jinhong Yuan"
+      ],
+      "year": 2021,
+      "venue": "arXiv preprint arXiv:2009.01423",
+      "arxiv_id": "2009.01423",
+      "abstract": "Channel estimation is one of the main tasks in realizing practical intelligent reflecting surface-assisted multi-user communication (IRS-MC) systems. However, different from traditional communication systems, an IRS-MC system generally involves a cascaded channel with a sophisticated statistical distribution. We model the channel estimation as a denoising problem and adopt a deep residual learning (DReL) approach to implicitly learn the residual noise for recovering the channel coefficients.",
+      "key_methods": [
+        "Deep residual learning",
+        "Denoising approach",
+        "Bayesian philosophy"
+      ],
+      "key_results": [
+        "Improved channel estimation performance",
+        "Effective for cascaded channels",
+        "DRN-based MMSE estimator"
+      ],
+      "limitations": [
+        "No diffusion models",
+        "Limited to IRS systems",
+        "No complex-valued formulation"
+      ],
+      "relevance_score": 0.75
+    },
+    {
+      "title": "Intelligent Reflecting Surface-Enhanced OFDM: Channel Estimation and Reflection Optimization",
+      "authors": [
+        "Beixiong Zheng",
+        "Rui Zhang"
+      ],
+      "year": 2020,
+      "venue": "arXiv preprint arXiv:1909.03272",
+      "arxiv_id": "1909.03272",
+      "abstract": "In the intelligent reflecting surface (IRS)-enhanced wireless communication system, channel state information (CSI) is of paramount importance for achieving the passive beamforming gain of IRS, which, however, is a practically challenging task due to its massive number of passive elements without transmitting/receiving capabilities. In this letter, we propose a practical transmission protocol to execute channel estimation and reflection optimization successively for an IRS-enhanced orthogonal frequency division multiplexing (OFDM) system.",
+      "key_methods": [
+        "IRS-enhanced OFDM",
+        "Reflection pattern design",
+        "Unit-modulus constraint"
+      ],
+      "key_results": [
+        "Closed-form channel estimation error",
+        "Low-complexity optimization",
+        "Time domain signal path resolution"
+      ],
+      "limitations": [
+        "No diffusion models",
+        "Limited to IRS systems",
+        "No complex-valued neural networks"
+      ],
+      "relevance_score": 0.7
+    },
+    {
+      "title": "Acute Lymphoblastic Leukemia Detection Using Hypercomplex-Valued Convolutional Neural Networks",
+      "authors": [
+        "Guilherme Vieira",
+        "Marcos Eduardo Valle"
+      ],
+      "year": 2022,
+      "venue": "arXiv preprint arXiv:2205.13273",
+      "arxiv_id": "2205.13273",
+      "abstract": "This paper features convolutional neural networks defined on hypercomplex algebras applied to classify lymphocytes in blood smear digital microscopic images. We perform the classification task using eight hypercomplex-valued convolutional neural networks (HvCNNs) along with real-valued convolutional networks. Our results show that HvCNNs perform better than the real-valued model, showcasing higher accuracy with a much smaller number of parameters.",
+      "key_methods": [
+        "Hypercomplex-valued CNNs",
+        "Clifford algebras",
+        "HSV-encoded images"
+      ],
+      "key_results": [
+        "96.6% accuracy",
+        "Fewer parameters than real-valued models",
+        "Superior performance"
+      ],
+      "limitations": [
+        "Medical imaging application",
+        "No wireless communications",
+        "No diffusion models"
+      ],
+      "relevance_score": 0.6
+    },
+    {
+      "title": "Denoising Diffusion Probabilistic Models",
+      "authors": [
+        "Jonathan Ho",
+        "Ajay Jain",
+        "Pieter Abbeel"
+      ],
+      "year": 2020,
+      "venue": "arXiv preprint arXiv:2006.11239",
+      "arxiv_id": "2006.11239",
+      "abstract": "We present high quality image synthesis results using diffusion probabilistic models, a class of latent variable models inspired by considerations from nonequilibrium thermodynamics. Our best results are obtained by training on a weighted variational bound designed according to a novel connection between diffusion probabilistic models and denoising score matching with Langevin dynamics.",
+      "key_methods": [
+        "Denoising diffusion probabilistic models",
+        "Score matching",
+        "Langevin dynamics"
+      ],
+      "key_results": [
+        "State-of-the-art FID score",
+        "High quality image synthesis",
+        "Progressive decompression"
+      ],
+      "limitations": [
+        "Image synthesis focus",
+        "No wireless communications",
+        "No complex-valued formulation"
+      ],
+      "relevance_score": 0.65
+    },
+    {
+      "title": "Denoising Diffusion Probabilistic Models for Hardware-Impaired Communications",
+      "authors": [
+        "Mehdi Letafati",
+        "Samad Ali",
+        "Matti Latva-aho"
+      ],
+      "year": 2023,
+      "venue": "arXiv preprint arXiv:2309.08568",
+      "arxiv_id": "2309.08568",
+      "abstract": "Generative AI has received significant attention among a spectrum of diverse industrial and academic domains, thanks to the magnificent results achieved from deep generative models such as generative pre-trained transformers (GPT) and diffusion models. In this paper, we explore the applications of denoising diffusion probabilistic models (DDPMs) in wireless communication systems under practical assumptions such as hardware impairments (HWI), low-SNR regime, and quantization error.",
+      "key_methods": [
+        "DDPMs for wireless communications",
+        "Hardware impairment modeling",
+        "Low-SNR operation"
+      ],
+      "key_results": [
+        "Network resilience in low-SNR",
+        "Non-Gaussian noise handling",
+        "Quantization error mitigation"
+      ],
+      "limitations": [
+        "No complex-valued formulation",
+        "No OFDM-specific design",
+        "No phase interaction"
+      ],
+      "relevance_score": 0.8
+    },
+    {
+      "title": "Channel-Adaptive Wireless Image Transmission with OFDM",
+      "authors": [
+        "Haotian Wu",
+        "Yulin Shao",
+        "Krystian Mikolajczyk",
+        "Deniz Gündüz"
+      ],
+      "year": 2022,
+      "venue": "arXiv preprint arXiv:2205.02417",
+      "arxiv_id": "2205.02417",
+      "abstract": "We present a learning-based channel-adaptive joint source and channel coding (CA-JSCC) scheme for wireless image transmission over multipath fading channels. The proposed method is an end-to-end autoencoder architecture with a dual-attention mechanism employing orthogonal frequency division multiplexing (OFDM) transmission.",
+      "key_methods": [
+        "Channel-adaptive JSCC",
+        "Dual-attention mechanism",
+        "OFDM transmission"
+      ],
+      "key_results": [
+        "State-of-the-art JSCC performance",
+        "Robust to channel variations",
+        "Efficient resource allocation"
+      ],
+      "limitations": [
+        "Image transmission focus",
+        "No diffusion models",
+        "No complex-valued neural networks"
+      ],
+      "relevance_score": 0.7
+    },
+    {
+      "title": "Compressed Sensing Algorithms for OFDM Channel Estimation",
+      "authors": [
+        "Jonathan Ling",
+        "Dmitry Chizhik",
+        "A. Tulino",
+        "Inaki Esnaola"
+      ],
+      "year": 2016,
+      "venue": "arXiv preprint arXiv:1612.07761",
+      "arxiv_id": "1612.07761",
+      "abstract": "Radio channels are typically sparse in the delay domain, and ideal for compressed sensing. A new compressed sensing algorithm called eX-OMP is developed that yields performance similar to that of the optimal MMSE estimator. The new algorithm relies on a small amount additional data.",
+      "key_methods": [
+        "Compressed sensing",
+        "eX-OMP algorithm",
+        "Sparse channel modeling"
+      ],
+      "key_results": [
+        "MMSE-like performance",
+        "Adaptive channel tracking",
+        "Noise reduction"
+      ],
+      "limitations": [
+        "Traditional signal processing",
+        "No deep learning",
+        "No diffusion models"
+      ],
+      "relevance_score": 0.65
+    },
+    {
+      "title": "A Deep Learning Wireless Transceiver with Fully Learned Modulation and Synchronization",
+      "authors": [
+        "Johannes Schmitz",
+        "Caspar von Lengerke",
+        "Nikita Airee",
+        "Arash Behboodi",
+        "Rudolf Mathar"
+      ],
+      "year": 2019,
+      "venue": "arXiv preprint arXiv:1905.10468",
+      "arxiv_id": "1905.10468",
+      "abstract": "In this paper, we present a deep learning based wireless transceiver. We describe in detail the corresponding artificial neural network architecture, the training process, and report on excessive over-the-air measurement results. We employ the end-to-end training approach with an autoencoder model that includes a channel model in the middle layers.",
+      "key_methods": [
+        "End-to-end autoencoder",
+        "Learned modulation",
+        "Time synchronization"
+      ],
+      "key_results": [
+        "0.5 Mbps raw bit-rate",
+        "Over-the-air implementation",
+        "High throughput capability"
+      ],
+      "limitations": [
+        "No diffusion models",
+        "No complex-valued formulation",
+        "Limited to single antenna"
+      ],
+      "relevance_score": 0.7
+    }
+  ],
+  "gap_analysis": [
+    {
+      "description": "Complex-valued diffusion models for wireless communications: While diffusion models have been applied to wireless communications and complex-valued neural networks exist for signal processing, there is no existing work that combines complex-valued formulations with diffusion models specifically for wireless channel estimation.",
+      "supporting_evidence": [
+        "Yang2025 uses real-valued diffusion models",
+        "Wu2023 proposes CDDM but without complex-valued processing",
+        "Migus2025 analyzes CVNNs but not for diffusion models"
+      ],
+      "opportunity_score": 0.95
+    },
+    {
+      "description": "Phase interaction layers in neural architectures: Current complex-valued neural networks handle magnitude and phase separately or through standard complex operations, but there is limited work on explicit phase interaction mechanisms that could capture phase relationships crucial for OFDM channel estimation.",
+      "supporting_evidence": [
+        "Zhao2021 uses complex convolutions without phase interaction",
+        "Vieira2022 uses hypercomplex algebras but for medical imaging",
+        "No existing phase interaction layer designs found"
+      ],
+      "opportunity_score": 0.9
+    },
+    {
+      "description": "OFDM-specific diffusion model architectures: Existing diffusion models for wireless communications are generic and do not exploit OFDM-specific structure such as frequency domain sparsity, cyclic prefix properties, or subcarrier correlations.",
+      "supporting_evidence": [
+        "Yang2025 mentions OFDM but no specific architectural design",
+        "Letafati2023 focuses on general wireless channels",
+        "Wu2022 uses OFDM but with conventional autoencoders"
+      ],
+      "opportunity_score": 0.85
+    },
+    {
+      "description": "Theoretical analysis of complex-valued diffusion processes: The mathematical foundations of diffusion processes in complex domains, particularly for channel estimation tasks, lack comprehensive theoretical treatment including convergence guarantees and performance bounds.",
+      "supporting_evidence": [
+        "Ho2020 provides theory for real-valued DDPMs",
+        "No complex-valued diffusion theory found",
+        "Existing wireless diffusion works lack theoretical analysis"
+      ],
+      "opportunity_score": 0.8
+    },
+    {
+      "description": "Hardware-aware complex-valued diffusion implementations: While hardware impairments have been considered for real-valued diffusion models, the specific challenges of implementing complex-valued diffusion denoisers with phase interaction layers on practical hardware remain unexplored.",
+      "supporting_evidence": [
+        "Letafati2023 considers hardware impairments for real-valued models",
+        "No hardware-aware complex-valued diffusion work found",
+        "Gap between theoretical models and practical implementation"
+      ],
+      "opportunity_score": 0.75
+    }
+  ],
+  "taxonomy": {
+    "Diffusion Models for Wireless Communications": [
+      "Diffusion Models for Wireless Transceivers",
+      "CDDM: Channel Denoising Diffusion Models",
+      "Conditional Denoising Diffusion Probabilistic Models",
+      "Denoising Diffusion Probabilistic Models for Hardware-Impaired Communications"
+    ],
+    "Complex-Valued Neural Networks": [
+      "Newton-Puiseux Analysis for Complex-Valued Neural Networks",
+      "Deep-Waveform: Complex-valued Convolutional Networks",
+      "Hypercomplex-Valued Convolutional Neural Networks"
+    ],
+    "Deep Learning for OFDM Channel Estimation": [
+      "Power of Deep Learning for Channel Estimation in OFDM",
+      "Deep Learning-based Channel Estimation for mmWave",
+      "Deep Residual Learning for Channel Estimation",
+      "Intelligent Reflecting Surface-Enhanced OFDM"
+    ],
+    "Traditional Channel Estimation": [
+      "Compressed Sensing Algorithms for OFDM",
+      "Channel-Adaptive Wireless Image Transmission"
+    ],
+    "End-to-End Wireless Transceivers": [
+      "Deep Learning Wireless Transceiver with Learned Modulation"
+    ],
+    "Foundational Diffusion Models": [
+      "Denoising Diffusion Probabilistic Models"
+    ]
+  },
+  "bibtex_entries": [
+    "@article{yang2025diffusion, author={Yuzhi Yang and Sen Yan and Weijie Zhou and Brahim Mefgouda and Ridong Li}, title={Diffusion Models for Wireless Transceivers: From Pilot-Efficient Channel Estimation to AI-Native 6G Receivers}, journal={arXiv preprint arXiv:2510.24495}, year={2025}}",
+    "@article{wu2023cddm, author={Tong Wu and Zhiyong Chen and Dazhi He and Liang Qian and Yin Xu}, title={CDDM: Channel Denoising Diffusion Models for Wireless Semantic Communications}, journal={arXiv preprint arXiv:2309.08895}, year={2023}}",
+    "@article{letafati2023conditional, author={Mehdi Letafati and Samad Ali and Matti Latva-aho}, title={Conditional Denoising Diffusion Probabilistic Models for Data Reconstruction Enhancement in Wireless Communications}, journal={arXiv preprint arXiv:2310.19460}, year={2023}}",
+    "@article{migus2025newton, author={Piotr Migus}, title={Newton-Puiseux Analysis for Interpretability and Calibration of Complex-Valued Neural Networks}, journal={arXiv preprint arXiv:2504.19176}, year={2025}}",
+    "@article{zhao2021deep, author={Zhongyuan Zhao and Mehmet C. Vuran and Fujuan Guo and Stephen D. Scott}, title={Deep-Waveform: A Learned OFDM Receiver Based on Deep Complex-valued Convolutional Networks}, journal={arXiv preprint arXiv:1810.07181}, year={2021}}",
+    "@article{ye2017power, author={Hao Ye and Geoffrey Ye Li and Biing-Hwang Fred Juang}, title={Power of Deep Learning for Channel Estimation and Signal Detection in OFDM Systems}, journal={arXiv preprint arXiv:1708.08514}, year={2017}}",
+    "@article{he2019deep, author={Hengtao He and Chao-Kai Wen and Shi Jin and Geoffrey Ye Li}, title={Deep Learning-based Channel Estimation for Beamspace mmWave Massive MIMO Systems}, journal={arXiv preprint arXiv:1802.01290}, year={2019}}",
+    "@article{liu2021deep, author={Chang Liu and Xuemeng Liu and Derrick Wing Kwan Ng and Jinhong Yuan}, title={Deep Residual Learning for Channel Estimation in Intelligent Reflecting Surface-Assisted Multi-User Communications}, journal={arXiv preprint arXiv:2009.01423}, year={2021}}",
+    "@article{zheng2020intelligent, author={Beixiong Zheng and Rui Zhang}, title={Intelligent Reflecting Surface-Enhanced OFDM: Channel Estimation and Reflection Optimization}, journal={arXiv preprint arXiv:1909.03272}, year={2020}}",
+    "@article{vieira2022acute, author={Guilherme Vieira and Marcos Eduardo Valle}, title={Acute Lymphoblastic Leukemia Detection Using Hypercomplex-Valued Convolutional Neural Networks}, journal={arXiv preprint arXiv:2205.13273}, year={2022}}",
+    "@article{ho2020denoising, author={Jonathan Ho and Ajay Jain and Pieter Abbeel}, title={Denoising Diffusion Probabilistic Models}, journal={arXiv preprint arXiv:2006.11239}, year={2020}}",
+    "@article{letafati2023denoising, author={Mehdi Letafati and Samad Ali and Matti Latva-aho}, title={Denoising Diffusion Probabilistic Models for Hardware-Impaired Communications}, journal={arXiv preprint arXiv:2309.08568}, year={2023}}",
+    "@article{wu2022channel, author={Haotian Wu and Yulin Shao and Krystian Mikolajczyk and Deniz Gündüz}, title={Channel-Adaptive Wireless Image Transmission with OFDM}, journal={arXiv preprint arXiv:2205.02417}, year={2022}}",
+    "@article{ling2016compressed, author={Jonathan Ling and Dmitry Chizhik and A. Tulino and Inaki Esnaola}, title={Compressed Sensing Algorithms for OFDM Channel Estimation}, journal={arXiv preprint arXiv:1612.07761}, year={2016}}",
+    "@article{schmitz2019deep, author={Johannes Schmitz and Caspar von Lengerke and Nikita Airee and Arash Behboodi and Rudolf Mathar}, title={A Deep Learning Wireless Transceiver with Fully Learned Modulation and Synchronization}, journal={arXiv preprint arXiv:1905.10468}, year={2019}}"
+  ],
+  "metadata": {
+    "stage_name": "Literature Review",
+    "model_used": "anthropic/claude-sonnet-4-20250514",
+    "started_at": "2026-02-25T19:27:12.743681+00:00",
+    "completed_at": null,
+    "total_tokens": 0,
+    "total_cost_usd": 0.0,
+    "revision_number": 0
+  }
+}

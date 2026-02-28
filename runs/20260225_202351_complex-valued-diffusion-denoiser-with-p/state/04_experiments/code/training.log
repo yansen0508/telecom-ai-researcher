@@ -1,0 +1,365 @@
+[2026-02-26 21:34:10] === Starting ComplexUNet Training ===
+[2026-02-26 21:34:10] Model: ComplexUNet
+[2026-02-26 21:34:10] Parameters: 286,019
+[2026-02-26 21:34:10] Device: mps
+[2026-02-26 21:34:10] Epochs: 300, LR: 0.001, Warmup: 20, Patience: 30
+[2026-02-26 21:34:10] STATUS: running
+[2026-02-26 21:34:14] Epoch   1/300 | train_loss: 0.531465 | val_nmse:  -8.53 dB | best:  -8.53 dB | patience:  0/30 | lr: 1.45e-04 | time:    4s | ** saved best model **
+[2026-02-26 21:34:16] Epoch   2/300 | train_loss: 0.179136 | val_nmse: -11.19 dB | best: -11.19 dB | patience:  0/30 | lr: 1.90e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:34:18] Epoch   3/300 | train_loss: 0.126737 | val_nmse: -12.08 dB | best: -12.08 dB | patience:  0/30 | lr: 2.35e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:34:20] Epoch   4/300 | train_loss: 0.108413 | val_nmse: -12.58 dB | best: -12.58 dB | patience:  0/30 | lr: 2.80e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:34:22] Epoch   5/300 | train_loss: 0.094228 | val_nmse: -12.97 dB | best: -12.97 dB | patience:  0/30 | lr: 3.25e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:34:24] Epoch   6/300 | train_loss: 0.086930 | val_nmse: -13.32 dB | best: -13.32 dB | patience:  0/30 | lr: 3.70e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:34:26] Epoch   7/300 | train_loss: 0.083023 | val_nmse: -13.26 dB | best: -13.32 dB | patience:  1/30 | lr: 4.15e-04 | time:    2s
+[2026-02-26 21:34:28] Epoch   8/300 | train_loss: 0.078302 | val_nmse: -13.54 dB | best: -13.54 dB | patience:  0/30 | lr: 4.60e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:34:30] Epoch   9/300 | train_loss: 0.071731 | val_nmse: -13.34 dB | best: -13.54 dB | patience:  1/30 | lr: 5.05e-04 | time:    2s
+[2026-02-26 21:34:32] Epoch  10/300 | train_loss: 0.071192 | val_nmse: -14.08 dB | best: -14.08 dB | patience:  0/30 | lr: 5.50e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:34:34] Epoch  11/300 | train_loss: 0.067311 | val_nmse: -14.22 dB | best: -14.22 dB | patience:  0/30 | lr: 5.95e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:34:36] Epoch  12/300 | train_loss: 0.068150 | val_nmse: -13.72 dB | best: -14.22 dB | patience:  1/30 | lr: 6.40e-04 | time:    2s
+[2026-02-26 21:34:38] Epoch  13/300 | train_loss: 0.064984 | val_nmse: -14.22 dB | best: -14.22 dB | patience:  0/30 | lr: 6.85e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:34:40] Epoch  14/300 | train_loss: 0.062554 | val_nmse: -14.48 dB | best: -14.48 dB | patience:  0/30 | lr: 7.30e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:34:42] Epoch  15/300 | train_loss: 0.062178 | val_nmse: -14.63 dB | best: -14.63 dB | patience:  0/30 | lr: 7.75e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:34:44] Epoch  16/300 | train_loss: 0.059375 | val_nmse: -14.58 dB | best: -14.63 dB | patience:  1/30 | lr: 8.20e-04 | time:    2s
+[2026-02-26 21:34:46] Epoch  17/300 | train_loss: 0.058239 | val_nmse: -14.88 dB | best: -14.88 dB | patience:  0/30 | lr: 8.65e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:34:48] Epoch  18/300 | train_loss: 0.058549 | val_nmse: -14.79 dB | best: -14.88 dB | patience:  1/30 | lr: 9.10e-04 | time:    2s
+[2026-02-26 21:34:50] Epoch  19/300 | train_loss: 0.056994 | val_nmse: -14.81 dB | best: -14.88 dB | patience:  2/30 | lr: 9.55e-04 | time:    2s
+[2026-02-26 21:34:52] Epoch  20/300 | train_loss: 0.056483 | val_nmse: -14.83 dB | best: -14.88 dB | patience:  3/30 | lr: 1.00e-03 | time:    2s
+[2026-02-26 21:34:54] Epoch  21/300 | train_loss: 0.054210 | val_nmse: -14.91 dB | best: -14.91 dB | patience:  0/30 | lr: 1.00e-03 | time:    2s | ** saved best model **
+[2026-02-26 21:34:56] Epoch  22/300 | train_loss: 0.055570 | val_nmse: -14.93 dB | best: -14.93 dB | patience:  0/30 | lr: 1.00e-03 | time:    2s | ** saved best model **
+[2026-02-26 21:34:58] Epoch  23/300 | train_loss: 0.054740 | val_nmse: -14.95 dB | best: -14.95 dB | patience:  0/30 | lr: 1.00e-03 | time:    2s | ** saved best model **
+[2026-02-26 21:35:00] Epoch  24/300 | train_loss: 0.055365 | val_nmse: -15.16 dB | best: -15.16 dB | patience:  0/30 | lr: 1.00e-03 | time:    2s | ** saved best model **
+[2026-02-26 21:35:02] Epoch  25/300 | train_loss: 0.052622 | val_nmse: -15.16 dB | best: -15.16 dB | patience:  0/30 | lr: 9.99e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:35:04] Epoch  26/300 | train_loss: 0.053920 | val_nmse: -15.08 dB | best: -15.16 dB | patience:  1/30 | lr: 9.99e-04 | time:    2s
+[2026-02-26 21:35:06] Epoch  27/300 | train_loss: 0.051898 | val_nmse: -15.33 dB | best: -15.33 dB | patience:  0/30 | lr: 9.98e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:35:08] Epoch  28/300 | train_loss: 0.052461 | val_nmse: -15.30 dB | best: -15.33 dB | patience:  1/30 | lr: 9.98e-04 | time:    2s
+[2026-02-26 21:35:10] Epoch  29/300 | train_loss: 0.050486 | val_nmse: -15.24 dB | best: -15.33 dB | patience:  2/30 | lr: 9.97e-04 | time:    2s
+[2026-02-26 21:35:12] Epoch  30/300 | train_loss: 0.049238 | val_nmse: -15.40 dB | best: -15.40 dB | patience:  0/30 | lr: 9.97e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:35:15] Epoch  31/300 | train_loss: 0.051554 | val_nmse: -15.15 dB | best: -15.40 dB | patience:  1/30 | lr: 9.96e-04 | time:    2s
+[2026-02-26 21:35:17] Epoch  32/300 | train_loss: 0.048527 | val_nmse: -15.32 dB | best: -15.40 dB | patience:  2/30 | lr: 9.96e-04 | time:    2s
+[2026-02-26 21:35:19] Epoch  33/300 | train_loss: 0.049024 | val_nmse: -15.38 dB | best: -15.40 dB | patience:  3/30 | lr: 9.95e-04 | time:    2s
+[2026-02-26 21:35:20] Epoch  34/300 | train_loss: 0.048948 | val_nmse: -15.39 dB | best: -15.40 dB | patience:  4/30 | lr: 9.94e-04 | time:    2s
+[2026-02-26 21:35:22] Epoch  35/300 | train_loss: 0.050047 | val_nmse: -14.85 dB | best: -15.40 dB | patience:  5/30 | lr: 9.93e-04 | time:    2s
+[2026-02-26 21:35:24] Epoch  36/300 | train_loss: 0.049162 | val_nmse: -15.33 dB | best: -15.40 dB | patience:  6/30 | lr: 9.92e-04 | time:    2s
+[2026-02-26 21:35:26] Epoch  37/300 | train_loss: 0.046732 | val_nmse: -15.50 dB | best: -15.50 dB | patience:  0/30 | lr: 9.91e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:35:28] Epoch  38/300 | train_loss: 0.047321 | val_nmse: -15.51 dB | best: -15.51 dB | patience:  0/30 | lr: 9.90e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:35:30] Epoch  39/300 | train_loss: 0.046500 | val_nmse: -15.47 dB | best: -15.51 dB | patience:  1/30 | lr: 9.89e-04 | time:    2s
+[2026-02-26 21:35:32] Epoch  40/300 | train_loss: 0.047351 | val_nmse: -15.25 dB | best: -15.51 dB | patience:  2/30 | lr: 9.88e-04 | time:    2s
+[2026-02-26 21:35:34] Epoch  41/300 | train_loss: 0.045089 | val_nmse: -15.57 dB | best: -15.57 dB | patience:  0/30 | lr: 9.86e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:35:36] Epoch  42/300 | train_loss: 0.048533 | val_nmse: -15.37 dB | best: -15.57 dB | patience:  1/30 | lr: 9.85e-04 | time:    2s
+[2026-02-26 21:35:38] Epoch  43/300 | train_loss: 0.046437 | val_nmse: -15.29 dB | best: -15.57 dB | patience:  2/30 | lr: 9.84e-04 | time:    2s
+[2026-02-26 21:35:40] Epoch  44/300 | train_loss: 0.047442 | val_nmse: -15.54 dB | best: -15.57 dB | patience:  3/30 | lr: 9.82e-04 | time:    2s
+[2026-02-26 21:35:42] Epoch  45/300 | train_loss: 0.047398 | val_nmse: -15.67 dB | best: -15.67 dB | patience:  0/30 | lr: 9.81e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:35:44] Epoch  46/300 | train_loss: 0.046453 | val_nmse: -15.60 dB | best: -15.67 dB | patience:  1/30 | lr: 9.79e-04 | time:    2s
+[2026-02-26 21:35:46] Epoch  47/300 | train_loss: 0.046646 | val_nmse: -15.44 dB | best: -15.67 dB | patience:  2/30 | lr: 9.77e-04 | time:    2s
+[2026-02-26 21:35:48] Epoch  48/300 | train_loss: 0.046782 | val_nmse: -15.53 dB | best: -15.67 dB | patience:  3/30 | lr: 9.76e-04 | time:    2s
+[2026-02-26 21:35:50] Epoch  49/300 | train_loss: 0.048079 | val_nmse: -15.44 dB | best: -15.67 dB | patience:  4/30 | lr: 9.74e-04 | time:    2s
+[2026-02-26 21:35:52] Epoch  50/300 | train_loss: 0.046058 | val_nmse: -15.61 dB | best: -15.67 dB | patience:  5/30 | lr: 9.72e-04 | time:    2s
+[2026-02-26 21:35:54] Epoch  51/300 | train_loss: 0.045338 | val_nmse: -15.57 dB | best: -15.67 dB | patience:  6/30 | lr: 9.70e-04 | time:    2s
+[2026-02-26 21:35:57] Epoch  52/300 | train_loss: 0.045320 | val_nmse: -15.62 dB | best: -15.67 dB | patience:  7/30 | lr: 9.68e-04 | time:    2s
+[2026-02-26 21:35:59] Epoch  53/300 | train_loss: 0.045720 | val_nmse: -15.61 dB | best: -15.67 dB | patience:  8/30 | lr: 9.66e-04 | time:    2s
+[2026-02-26 21:36:01] Epoch  54/300 | train_loss: 0.045514 | val_nmse: -15.67 dB | best: -15.67 dB | patience:  9/30 | lr: 9.64e-04 | time:    2s
+[2026-02-26 21:36:03] Epoch  55/300 | train_loss: 0.045775 | val_nmse: -15.49 dB | best: -15.67 dB | patience: 10/30 | lr: 9.62e-04 | time:    2s
+[2026-02-26 21:36:05] Epoch  56/300 | train_loss: 0.044256 | val_nmse: -15.63 dB | best: -15.67 dB | patience: 11/30 | lr: 9.60e-04 | time:    2s
+[2026-02-26 21:36:07] Epoch  57/300 | train_loss: 0.044730 | val_nmse: -15.54 dB | best: -15.67 dB | patience: 12/30 | lr: 9.58e-04 | time:    2s
+[2026-02-26 21:36:09] Epoch  58/300 | train_loss: 0.045622 | val_nmse: -15.51 dB | best: -15.67 dB | patience: 13/30 | lr: 9.56e-04 | time:    2s
+[2026-02-26 21:36:11] Epoch  59/300 | train_loss: 0.045624 | val_nmse: -15.58 dB | best: -15.67 dB | patience: 14/30 | lr: 9.53e-04 | time:    2s
+[2026-02-26 21:36:13] Epoch  60/300 | train_loss: 0.045169 | val_nmse: -15.69 dB | best: -15.69 dB | patience:  0/30 | lr: 9.51e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:36:15] Epoch  61/300 | train_loss: 0.044551 | val_nmse: -15.64 dB | best: -15.69 dB | patience:  1/30 | lr: 9.49e-04 | time:    2s
+[2026-02-26 21:36:17] Epoch  62/300 | train_loss: 0.045315 | val_nmse: -15.68 dB | best: -15.69 dB | patience:  2/30 | lr: 9.46e-04 | time:    2s
+[2026-02-26 21:36:19] Epoch  63/300 | train_loss: 0.043772 | val_nmse: -15.78 dB | best: -15.78 dB | patience:  0/30 | lr: 9.43e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:36:21] Epoch  64/300 | train_loss: 0.044342 | val_nmse: -15.69 dB | best: -15.78 dB | patience:  1/30 | lr: 9.41e-04 | time:    2s
+[2026-02-26 21:36:24] Epoch  65/300 | train_loss: 0.043979 | val_nmse: -15.67 dB | best: -15.78 dB | patience:  2/30 | lr: 9.38e-04 | time:    2s
+[2026-02-26 21:36:26] Epoch  66/300 | train_loss: 0.044738 | val_nmse: -15.44 dB | best: -15.78 dB | patience:  3/30 | lr: 9.36e-04 | time:    2s
+[2026-02-26 21:36:28] Epoch  67/300 | train_loss: 0.043550 | val_nmse: -15.77 dB | best: -15.78 dB | patience:  4/30 | lr: 9.33e-04 | time:    2s
+[2026-02-26 21:36:29] Epoch  68/300 | train_loss: 0.043688 | val_nmse: -15.65 dB | best: -15.78 dB | patience:  5/30 | lr: 9.30e-04 | time:    2s
+[2026-02-26 21:36:32] Epoch  69/300 | train_loss: 0.044498 | val_nmse: -15.59 dB | best: -15.78 dB | patience:  6/30 | lr: 9.27e-04 | time:    2s
+[2026-02-26 21:36:33] Epoch  70/300 | train_loss: 0.043179 | val_nmse: -15.75 dB | best: -15.78 dB | patience:  7/30 | lr: 9.24e-04 | time:    2s
+[2026-02-26 21:36:35] Epoch  71/300 | train_loss: 0.044190 | val_nmse: -15.73 dB | best: -15.78 dB | patience:  8/30 | lr: 9.21e-04 | time:    2s
+[2026-02-26 21:36:37] Epoch  72/300 | train_loss: 0.043368 | val_nmse: -15.55 dB | best: -15.78 dB | patience:  9/30 | lr: 9.18e-04 | time:    2s
+[2026-02-26 21:36:40] Epoch  73/300 | train_loss: 0.043951 | val_nmse: -15.57 dB | best: -15.78 dB | patience: 10/30 | lr: 9.15e-04 | time:    2s
+[2026-02-26 21:36:42] Epoch  74/300 | train_loss: 0.042262 | val_nmse: -15.82 dB | best: -15.82 dB | patience:  0/30 | lr: 9.12e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:36:44] Epoch  75/300 | train_loss: 0.042475 | val_nmse: -15.80 dB | best: -15.82 dB | patience:  1/30 | lr: 9.09e-04 | time:    2s
+[2026-02-26 21:36:46] Epoch  76/300 | train_loss: 0.043193 | val_nmse: -15.72 dB | best: -15.82 dB | patience:  2/30 | lr: 9.05e-04 | time:    2s
+[2026-02-26 21:36:48] Epoch  77/300 | train_loss: 0.044253 | val_nmse: -15.46 dB | best: -15.82 dB | patience:  3/30 | lr: 9.02e-04 | time:    2s
+[2026-02-26 21:36:50] Epoch  78/300 | train_loss: 0.043023 | val_nmse: -15.82 dB | best: -15.82 dB | patience:  0/30 | lr: 8.99e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:36:52] Epoch  79/300 | train_loss: 0.041648 | val_nmse: -15.82 dB | best: -15.82 dB | patience:  0/30 | lr: 8.95e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:36:54] Epoch  80/300 | train_loss: 0.042706 | val_nmse: -15.81 dB | best: -15.82 dB | patience:  1/30 | lr: 8.92e-04 | time:    2s
+[2026-02-26 21:36:56] Epoch  81/300 | train_loss: 0.042800 | val_nmse: -15.87 dB | best: -15.87 dB | patience:  0/30 | lr: 8.89e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:36:58] Epoch  82/300 | train_loss: 0.041967 | val_nmse: -15.64 dB | best: -15.87 dB | patience:  1/30 | lr: 8.85e-04 | time:    2s
+[2026-02-26 21:37:00] Epoch  83/300 | train_loss: 0.042694 | val_nmse: -15.72 dB | best: -15.87 dB | patience:  2/30 | lr: 8.81e-04 | time:    2s
+[2026-02-26 21:37:02] Epoch  84/300 | train_loss: 0.042663 | val_nmse: -15.61 dB | best: -15.87 dB | patience:  3/30 | lr: 8.78e-04 | time:    2s
+[2026-02-26 21:37:04] Epoch  85/300 | train_loss: 0.042375 | val_nmse: -15.65 dB | best: -15.87 dB | patience:  4/30 | lr: 8.74e-04 | time:    2s
+[2026-02-26 21:37:07] Epoch  86/300 | train_loss: 0.042734 | val_nmse: -15.79 dB | best: -15.87 dB | patience:  5/30 | lr: 8.70e-04 | time:    2s
+[2026-02-26 21:37:08] Epoch  87/300 | train_loss: 0.042944 | val_nmse: -15.76 dB | best: -15.87 dB | patience:  6/30 | lr: 8.67e-04 | time:    2s
+[2026-02-26 21:37:10] Epoch  88/300 | train_loss: 0.041902 | val_nmse: -15.80 dB | best: -15.87 dB | patience:  7/30 | lr: 8.63e-04 | time:    2s
+[2026-02-26 21:37:12] Epoch  89/300 | train_loss: 0.042362 | val_nmse: -15.76 dB | best: -15.87 dB | patience:  8/30 | lr: 8.59e-04 | time:    2s
+[2026-02-26 21:37:15] Epoch  90/300 | train_loss: 0.041867 | val_nmse: -15.84 dB | best: -15.87 dB | patience:  9/30 | lr: 8.55e-04 | time:    2s
+[2026-02-26 21:37:17] Epoch  91/300 | train_loss: 0.041493 | val_nmse: -15.69 dB | best: -15.87 dB | patience: 10/30 | lr: 8.51e-04 | time:    2s
+[2026-02-26 21:37:19] Epoch  92/300 | train_loss: 0.042851 | val_nmse: -15.81 dB | best: -15.87 dB | patience: 11/30 | lr: 8.47e-04 | time:    2s
+[2026-02-26 21:37:21] Epoch  93/300 | train_loss: 0.041779 | val_nmse: -15.80 dB | best: -15.87 dB | patience: 12/30 | lr: 8.43e-04 | time:    2s
+[2026-02-26 21:37:23] Epoch  94/300 | train_loss: 0.041337 | val_nmse: -15.83 dB | best: -15.87 dB | patience: 13/30 | lr: 8.39e-04 | time:    2s
+[2026-02-26 21:37:25] Epoch  95/300 | train_loss: 0.041092 | val_nmse: -15.81 dB | best: -15.87 dB | patience: 14/30 | lr: 8.35e-04 | time:    2s
+[2026-02-26 21:37:27] Epoch  96/300 | train_loss: 0.041751 | val_nmse: -15.86 dB | best: -15.87 dB | patience: 15/30 | lr: 8.31e-04 | time:    2s
+[2026-02-26 21:37:29] Epoch  97/300 | train_loss: 0.043132 | val_nmse: -15.67 dB | best: -15.87 dB | patience: 16/30 | lr: 8.26e-04 | time:    2s
+[2026-02-26 21:37:31] Epoch  98/300 | train_loss: 0.042628 | val_nmse: -15.74 dB | best: -15.87 dB | patience: 17/30 | lr: 8.22e-04 | time:    2s
+[2026-02-26 21:37:33] Epoch  99/300 | train_loss: 0.041599 | val_nmse: -15.76 dB | best: -15.87 dB | patience: 18/30 | lr: 8.18e-04 | time:    2s
+[2026-02-26 21:37:35] Epoch 100/300 | train_loss: 0.041331 | val_nmse: -15.73 dB | best: -15.87 dB | patience: 19/30 | lr: 8.14e-04 | time:    2s
+[2026-02-26 21:37:37] Epoch 101/300 | train_loss: 0.041773 | val_nmse: -15.64 dB | best: -15.87 dB | patience: 20/30 | lr: 8.09e-04 | time:    2s
+[2026-02-26 21:37:39] Epoch 102/300 | train_loss: 0.041027 | val_nmse: -15.73 dB | best: -15.87 dB | patience: 21/30 | lr: 8.05e-04 | time:    2s
+[2026-02-26 21:37:41] Epoch 103/300 | train_loss: 0.041897 | val_nmse: -15.54 dB | best: -15.87 dB | patience: 22/30 | lr: 8.00e-04 | time:    2s
+[2026-02-26 21:37:43] Epoch 104/300 | train_loss: 0.041211 | val_nmse: -15.88 dB | best: -15.88 dB | patience:  0/30 | lr: 7.96e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:37:45] Epoch 105/300 | train_loss: 0.043189 | val_nmse: -15.85 dB | best: -15.88 dB | patience:  1/30 | lr: 7.91e-04 | time:    2s
+[2026-02-26 21:37:47] Epoch 106/300 | train_loss: 0.041022 | val_nmse: -15.82 dB | best: -15.88 dB | patience:  2/30 | lr: 7.87e-04 | time:    2s
+[2026-02-26 21:37:49] Epoch 107/300 | train_loss: 0.039898 | val_nmse: -15.86 dB | best: -15.88 dB | patience:  3/30 | lr: 7.82e-04 | time:    2s
+[2026-02-26 21:37:51] Epoch 108/300 | train_loss: 0.040808 | val_nmse: -15.87 dB | best: -15.88 dB | patience:  4/30 | lr: 7.78e-04 | time:    2s
+[2026-02-26 21:37:53] Epoch 109/300 | train_loss: 0.041239 | val_nmse: -15.95 dB | best: -15.95 dB | patience:  0/30 | lr: 7.73e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:37:55] Epoch 110/300 | train_loss: 0.042879 | val_nmse: -15.90 dB | best: -15.95 dB | patience:  1/30 | lr: 7.68e-04 | time:    2s
+[2026-02-26 21:37:57] Epoch 111/300 | train_loss: 0.040437 | val_nmse: -15.84 dB | best: -15.95 dB | patience:  2/30 | lr: 7.64e-04 | time:    2s
+[2026-02-26 21:37:59] Epoch 112/300 | train_loss: 0.041660 | val_nmse: -15.87 dB | best: -15.95 dB | patience:  3/30 | lr: 7.59e-04 | time:    2s
+[2026-02-26 21:38:01] Epoch 113/300 | train_loss: 0.040483 | val_nmse: -15.66 dB | best: -15.95 dB | patience:  4/30 | lr: 7.54e-04 | time:    2s
+[2026-02-26 21:38:03] Epoch 114/300 | train_loss: 0.039840 | val_nmse: -15.83 dB | best: -15.95 dB | patience:  5/30 | lr: 7.49e-04 | time:    2s
+[2026-02-26 21:38:05] Epoch 115/300 | train_loss: 0.040908 | val_nmse: -15.74 dB | best: -15.95 dB | patience:  6/30 | lr: 7.44e-04 | time:    2s
+[2026-02-26 21:38:07] Epoch 116/300 | train_loss: 0.041913 | val_nmse: -15.94 dB | best: -15.95 dB | patience:  7/30 | lr: 7.40e-04 | time:    2s
+[2026-02-26 21:38:09] Epoch 117/300 | train_loss: 0.040969 | val_nmse: -15.77 dB | best: -15.95 dB | patience:  8/30 | lr: 7.35e-04 | time:    2s
+[2026-02-26 21:38:11] Epoch 118/300 | train_loss: 0.041111 | val_nmse: -15.91 dB | best: -15.95 dB | patience:  9/30 | lr: 7.30e-04 | time:    2s
+[2026-02-26 21:38:13] Epoch 119/300 | train_loss: 0.040791 | val_nmse: -15.97 dB | best: -15.97 dB | patience:  0/30 | lr: 7.25e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:38:15] Epoch 120/300 | train_loss: 0.039893 | val_nmse: -15.86 dB | best: -15.97 dB | patience:  1/30 | lr: 7.20e-04 | time:    2s
+[2026-02-26 21:38:17] Epoch 121/300 | train_loss: 0.040424 | val_nmse: -15.91 dB | best: -15.97 dB | patience:  2/30 | lr: 7.15e-04 | time:    2s
+[2026-02-26 21:38:19] Epoch 122/300 | train_loss: 0.041347 | val_nmse: -15.82 dB | best: -15.97 dB | patience:  3/30 | lr: 7.10e-04 | time:    2s
+[2026-02-26 21:38:21] Epoch 123/300 | train_loss: 0.041353 | val_nmse: -16.01 dB | best: -16.01 dB | patience:  0/30 | lr: 7.05e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:38:23] Epoch 124/300 | train_loss: 0.040660 | val_nmse: -15.87 dB | best: -16.01 dB | patience:  1/30 | lr: 7.00e-04 | time:    2s
+[2026-02-26 21:38:25] Epoch 125/300 | train_loss: 0.041202 | val_nmse: -15.73 dB | best: -16.01 dB | patience:  2/30 | lr: 6.94e-04 | time:    2s
+[2026-02-26 21:38:27] Epoch 126/300 | train_loss: 0.039313 | val_nmse: -15.79 dB | best: -16.01 dB | patience:  3/30 | lr: 6.89e-04 | time:    2s
+[2026-02-26 21:38:29] Epoch 127/300 | train_loss: 0.040420 | val_nmse: -15.76 dB | best: -16.01 dB | patience:  4/30 | lr: 6.84e-04 | time:    2s
+[2026-02-26 21:38:31] Epoch 128/300 | train_loss: 0.040732 | val_nmse: -15.90 dB | best: -16.01 dB | patience:  5/30 | lr: 6.79e-04 | time:    2s
+[2026-02-26 21:38:33] Epoch 129/300 | train_loss: 0.040217 | val_nmse: -15.83 dB | best: -16.01 dB | patience:  6/30 | lr: 6.74e-04 | time:    2s
+[2026-02-26 21:38:35] Epoch 130/300 | train_loss: 0.039950 | val_nmse: -15.86 dB | best: -16.01 dB | patience:  7/30 | lr: 6.68e-04 | time:    2s
+[2026-02-26 21:38:37] Epoch 131/300 | train_loss: 0.040971 | val_nmse: -15.88 dB | best: -16.01 dB | patience:  8/30 | lr: 6.63e-04 | time:    2s
+[2026-02-26 21:38:39] Epoch 132/300 | train_loss: 0.039652 | val_nmse: -15.89 dB | best: -16.01 dB | patience:  9/30 | lr: 6.58e-04 | time:    2s
+[2026-02-26 21:38:41] Epoch 133/300 | train_loss: 0.039929 | val_nmse: -15.94 dB | best: -16.01 dB | patience: 10/30 | lr: 6.53e-04 | time:    2s
+[2026-02-26 21:38:43] Epoch 134/300 | train_loss: 0.039699 | val_nmse: -15.86 dB | best: -16.01 dB | patience: 11/30 | lr: 6.47e-04 | time:    2s
+[2026-02-26 21:38:45] Epoch 135/300 | train_loss: 0.041856 | val_nmse: -15.85 dB | best: -16.01 dB | patience: 12/30 | lr: 6.42e-04 | time:    2s
+[2026-02-26 21:38:47] Epoch 136/300 | train_loss: 0.039134 | val_nmse: -15.86 dB | best: -16.01 dB | patience: 13/30 | lr: 6.37e-04 | time:    2s
+[2026-02-26 21:38:49] Epoch 137/300 | train_loss: 0.038968 | val_nmse: -15.94 dB | best: -16.01 dB | patience: 14/30 | lr: 6.31e-04 | time:    2s
+[2026-02-26 21:38:51] Epoch 138/300 | train_loss: 0.039789 | val_nmse: -15.88 dB | best: -16.01 dB | patience: 15/30 | lr: 6.26e-04 | time:    2s
+[2026-02-26 21:38:52] Epoch 139/300 | train_loss: 0.039578 | val_nmse: -15.93 dB | best: -16.01 dB | patience: 16/30 | lr: 6.21e-04 | time:    2s
+[2026-02-26 21:38:55] Epoch 140/300 | train_loss: 0.039186 | val_nmse: -15.86 dB | best: -16.01 dB | patience: 17/30 | lr: 6.15e-04 | time:    2s
+[2026-02-26 21:38:56] Epoch 141/300 | train_loss: 0.041098 | val_nmse: -15.84 dB | best: -16.01 dB | patience: 18/30 | lr: 6.10e-04 | time:    2s
+[2026-02-26 21:38:59] Epoch 142/300 | train_loss: 0.039883 | val_nmse: -15.91 dB | best: -16.01 dB | patience: 19/30 | lr: 6.04e-04 | time:    2s
+[2026-02-26 21:39:01] Epoch 143/300 | train_loss: 0.039342 | val_nmse: -15.94 dB | best: -16.01 dB | patience: 20/30 | lr: 5.99e-04 | time:    2s
+[2026-02-26 21:39:03] Epoch 144/300 | train_loss: 0.040440 | val_nmse: -15.79 dB | best: -16.01 dB | patience: 21/30 | lr: 5.93e-04 | time:    2s
+[2026-02-26 21:39:05] Epoch 145/300 | train_loss: 0.039890 | val_nmse: -15.84 dB | best: -16.01 dB | patience: 22/30 | lr: 5.88e-04 | time:    2s
+[2026-02-26 21:39:07] Epoch 146/300 | train_loss: 0.039176 | val_nmse: -15.79 dB | best: -16.01 dB | patience: 23/30 | lr: 5.82e-04 | time:    2s
+[2026-02-26 21:39:09] Epoch 147/300 | train_loss: 0.040196 | val_nmse: -15.93 dB | best: -16.01 dB | patience: 24/30 | lr: 5.77e-04 | time:    2s
+[2026-02-26 21:39:11] Epoch 148/300 | train_loss: 0.039523 | val_nmse: -15.86 dB | best: -16.01 dB | patience: 25/30 | lr: 5.71e-04 | time:    2s
+[2026-02-26 21:39:13] Epoch 149/300 | train_loss: 0.038801 | val_nmse: -15.95 dB | best: -16.01 dB | patience: 26/30 | lr: 5.66e-04 | time:    2s
+[2026-02-26 21:39:15] Epoch 150/300 | train_loss: 0.039090 | val_nmse: -15.92 dB | best: -16.01 dB | patience: 27/30 | lr: 5.60e-04 | time:    2s
+[2026-02-26 21:39:17] Epoch 151/300 | train_loss: 0.038141 | val_nmse: -15.88 dB | best: -16.01 dB | patience: 28/30 | lr: 5.55e-04 | time:    2s
+[2026-02-26 21:39:19] Epoch 152/300 | train_loss: 0.039398 | val_nmse: -15.88 dB | best: -16.01 dB | patience: 29/30 | lr: 5.49e-04 | time:    2s
+[2026-02-26 21:39:21] Epoch 153/300 | train_loss: 0.039473 | val_nmse: -15.92 dB | best: -16.01 dB | patience: 30/30 | lr: 5.44e-04 | time:    2s
+[2026-02-26 21:39:21] Early stopping at epoch 153
+[2026-02-26 21:39:21] ComplexUNet training complete | best_val_nmse: -16.01 dB | total_time: 311s
+[2026-02-26 21:39:21] === Starting RealUNet Training ===
+[2026-02-26 21:39:21] Model: RealUNet
+[2026-02-26 21:39:21] Parameters: 285,986
+[2026-02-26 21:39:21] Device: mps
+[2026-02-26 21:39:21] Epochs: 300, LR: 0.001, Warmup: 20, Patience: 30
+[2026-02-26 21:39:21] STATUS: running
+[2026-02-26 21:39:23] Epoch   1/300 | train_loss: 0.572232 | val_nmse:  -7.36 dB | best:  -7.36 dB | patience:  0/30 | lr: 1.45e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:39:25] Epoch   2/300 | train_loss: 0.182007 | val_nmse: -11.18 dB | best: -11.18 dB | patience:  0/30 | lr: 1.90e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:39:27] Epoch   3/300 | train_loss: 0.124923 | val_nmse: -12.22 dB | best: -12.22 dB | patience:  0/30 | lr: 2.35e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:39:29] Epoch   4/300 | train_loss: 0.103716 | val_nmse: -12.68 dB | best: -12.68 dB | patience:  0/30 | lr: 2.80e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:39:31] Epoch   5/300 | train_loss: 0.094599 | val_nmse: -13.15 dB | best: -13.15 dB | patience:  0/30 | lr: 3.25e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:39:33] Epoch   6/300 | train_loss: 0.085641 | val_nmse: -13.29 dB | best: -13.29 dB | patience:  0/30 | lr: 3.70e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:39:35] Epoch   7/300 | train_loss: 0.082299 | val_nmse: -13.70 dB | best: -13.70 dB | patience:  0/30 | lr: 4.15e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:39:37] Epoch   8/300 | train_loss: 0.075768 | val_nmse: -13.66 dB | best: -13.70 dB | patience:  1/30 | lr: 4.60e-04 | time:    2s
+[2026-02-26 21:39:39] Epoch   9/300 | train_loss: 0.071662 | val_nmse: -13.77 dB | best: -13.77 dB | patience:  0/30 | lr: 5.05e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:39:41] Epoch  10/300 | train_loss: 0.071841 | val_nmse: -14.15 dB | best: -14.15 dB | patience:  0/30 | lr: 5.50e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:39:43] Epoch  11/300 | train_loss: 0.066644 | val_nmse: -14.13 dB | best: -14.15 dB | patience:  1/30 | lr: 5.95e-04 | time:    2s
+[2026-02-26 21:39:45] Epoch  12/300 | train_loss: 0.064208 | val_nmse: -14.39 dB | best: -14.39 dB | patience:  0/30 | lr: 6.40e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:39:47] Epoch  13/300 | train_loss: 0.064362 | val_nmse: -14.35 dB | best: -14.39 dB | patience:  1/30 | lr: 6.85e-04 | time:    2s
+[2026-02-26 21:39:49] Epoch  14/300 | train_loss: 0.063091 | val_nmse: -14.29 dB | best: -14.39 dB | patience:  2/30 | lr: 7.30e-04 | time:    2s
+[2026-02-26 21:39:51] Epoch  15/300 | train_loss: 0.059551 | val_nmse: -14.65 dB | best: -14.65 dB | patience:  0/30 | lr: 7.75e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:39:53] Epoch  16/300 | train_loss: 0.059778 | val_nmse: -14.45 dB | best: -14.65 dB | patience:  1/30 | lr: 8.20e-04 | time:    2s
+[2026-02-26 21:39:55] Epoch  17/300 | train_loss: 0.058961 | val_nmse: -14.72 dB | best: -14.72 dB | patience:  0/30 | lr: 8.65e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:39:58] Epoch  18/300 | train_loss: 0.058447 | val_nmse: -14.85 dB | best: -14.85 dB | patience:  0/30 | lr: 9.10e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:40:00] Epoch  19/300 | train_loss: 0.060472 | val_nmse: -14.96 dB | best: -14.96 dB | patience:  0/30 | lr: 9.55e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:40:02] Epoch  20/300 | train_loss: 0.056285 | val_nmse: -14.94 dB | best: -14.96 dB | patience:  1/30 | lr: 1.00e-03 | time:    2s
+[2026-02-26 21:40:04] Epoch  21/300 | train_loss: 0.056236 | val_nmse: -14.88 dB | best: -14.96 dB | patience:  2/30 | lr: 1.00e-03 | time:    2s
+[2026-02-26 21:40:06] Epoch  22/300 | train_loss: 0.054612 | val_nmse: -14.86 dB | best: -14.96 dB | patience:  3/30 | lr: 1.00e-03 | time:    2s
+[2026-02-26 21:40:08] Epoch  23/300 | train_loss: 0.053184 | val_nmse: -14.77 dB | best: -14.96 dB | patience:  4/30 | lr: 1.00e-03 | time:    2s
+[2026-02-26 21:40:10] Epoch  24/300 | train_loss: 0.053100 | val_nmse: -15.01 dB | best: -15.01 dB | patience:  0/30 | lr: 1.00e-03 | time:    2s | ** saved best model **
+[2026-02-26 21:40:12] Epoch  25/300 | train_loss: 0.051234 | val_nmse: -14.59 dB | best: -15.01 dB | patience:  1/30 | lr: 9.99e-04 | time:    2s
+[2026-02-26 21:40:14] Epoch  26/300 | train_loss: 0.050573 | val_nmse: -15.02 dB | best: -15.02 dB | patience:  0/30 | lr: 9.99e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:40:16] Epoch  27/300 | train_loss: 0.051851 | val_nmse: -15.04 dB | best: -15.04 dB | patience:  0/30 | lr: 9.98e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:40:18] Epoch  28/300 | train_loss: 0.051594 | val_nmse: -15.26 dB | best: -15.26 dB | patience:  0/30 | lr: 9.98e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:40:20] Epoch  29/300 | train_loss: 0.051082 | val_nmse: -15.24 dB | best: -15.26 dB | patience:  1/30 | lr: 9.97e-04 | time:    2s
+[2026-02-26 21:40:22] Epoch  30/300 | train_loss: 0.051029 | val_nmse: -14.92 dB | best: -15.26 dB | patience:  2/30 | lr: 9.97e-04 | time:    2s
+[2026-02-26 21:40:24] Epoch  31/300 | train_loss: 0.049765 | val_nmse: -15.34 dB | best: -15.34 dB | patience:  0/30 | lr: 9.96e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:40:26] Epoch  32/300 | train_loss: 0.049177 | val_nmse: -15.50 dB | best: -15.50 dB | patience:  0/30 | lr: 9.96e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:40:28] Epoch  33/300 | train_loss: 0.049118 | val_nmse: -15.41 dB | best: -15.50 dB | patience:  1/30 | lr: 9.95e-04 | time:    2s
+[2026-02-26 21:40:30] Epoch  34/300 | train_loss: 0.048429 | val_nmse: -15.44 dB | best: -15.50 dB | patience:  2/30 | lr: 9.94e-04 | time:    2s
+[2026-02-26 21:40:32] Epoch  35/300 | train_loss: 0.048775 | val_nmse: -15.37 dB | best: -15.50 dB | patience:  3/30 | lr: 9.93e-04 | time:    2s
+[2026-02-26 21:40:34] Epoch  36/300 | train_loss: 0.047446 | val_nmse: -15.45 dB | best: -15.50 dB | patience:  4/30 | lr: 9.92e-04 | time:    2s
+[2026-02-26 21:40:36] Epoch  37/300 | train_loss: 0.046579 | val_nmse: -15.26 dB | best: -15.50 dB | patience:  5/30 | lr: 9.91e-04 | time:    2s
+[2026-02-26 21:40:38] Epoch  38/300 | train_loss: 0.048707 | val_nmse: -15.57 dB | best: -15.57 dB | patience:  0/30 | lr: 9.90e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:40:40] Epoch  39/300 | train_loss: 0.047054 | val_nmse: -15.21 dB | best: -15.57 dB | patience:  1/30 | lr: 9.89e-04 | time:    2s
+[2026-02-26 21:40:42] Epoch  40/300 | train_loss: 0.047291 | val_nmse: -15.59 dB | best: -15.59 dB | patience:  0/30 | lr: 9.88e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:40:44] Epoch  41/300 | train_loss: 0.047941 | val_nmse: -15.52 dB | best: -15.59 dB | patience:  1/30 | lr: 9.86e-04 | time:    2s
+[2026-02-26 21:40:46] Epoch  42/300 | train_loss: 0.045592 | val_nmse: -15.31 dB | best: -15.59 dB | patience:  2/30 | lr: 9.85e-04 | time:    2s
+[2026-02-26 21:40:48] Epoch  43/300 | train_loss: 0.047769 | val_nmse: -15.25 dB | best: -15.59 dB | patience:  3/30 | lr: 9.84e-04 | time:    2s
+[2026-02-26 21:40:50] Epoch  44/300 | train_loss: 0.048269 | val_nmse: -15.46 dB | best: -15.59 dB | patience:  4/30 | lr: 9.82e-04 | time:    2s
+[2026-02-26 21:40:52] Epoch  45/300 | train_loss: 0.046778 | val_nmse: -15.47 dB | best: -15.59 dB | patience:  5/30 | lr: 9.81e-04 | time:    2s
+[2026-02-26 21:40:54] Epoch  46/300 | train_loss: 0.046618 | val_nmse: -15.38 dB | best: -15.59 dB | patience:  6/30 | lr: 9.79e-04 | time:    2s
+[2026-02-26 21:40:56] Epoch  47/300 | train_loss: 0.044946 | val_nmse: -15.64 dB | best: -15.64 dB | patience:  0/30 | lr: 9.77e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:40:58] Epoch  48/300 | train_loss: 0.045151 | val_nmse: -15.48 dB | best: -15.64 dB | patience:  1/30 | lr: 9.76e-04 | time:    2s
+[2026-02-26 21:41:00] Epoch  49/300 | train_loss: 0.045822 | val_nmse: -15.41 dB | best: -15.64 dB | patience:  2/30 | lr: 9.74e-04 | time:    2s
+[2026-02-26 21:41:02] Epoch  50/300 | train_loss: 0.045499 | val_nmse: -15.63 dB | best: -15.64 dB | patience:  3/30 | lr: 9.72e-04 | time:    2s
+[2026-02-26 21:41:04] Epoch  51/300 | train_loss: 0.045683 | val_nmse: -15.52 dB | best: -15.64 dB | patience:  4/30 | lr: 9.70e-04 | time:    2s
+[2026-02-26 21:41:06] Epoch  52/300 | train_loss: 0.045549 | val_nmse: -15.65 dB | best: -15.65 dB | patience:  0/30 | lr: 9.68e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:41:08] Epoch  53/300 | train_loss: 0.046424 | val_nmse: -15.44 dB | best: -15.65 dB | patience:  1/30 | lr: 9.66e-04 | time:    2s
+[2026-02-26 21:41:10] Epoch  54/300 | train_loss: 0.045543 | val_nmse: -15.48 dB | best: -15.65 dB | patience:  2/30 | lr: 9.64e-04 | time:    2s
+[2026-02-26 21:41:12] Epoch  55/300 | train_loss: 0.045130 | val_nmse: -15.67 dB | best: -15.67 dB | patience:  0/30 | lr: 9.62e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:41:14] Epoch  56/300 | train_loss: 0.044677 | val_nmse: -15.45 dB | best: -15.67 dB | patience:  1/30 | lr: 9.60e-04 | time:    2s
+[2026-02-26 21:41:16] Epoch  57/300 | train_loss: 0.044504 | val_nmse: -15.63 dB | best: -15.67 dB | patience:  2/30 | lr: 9.58e-04 | time:    2s
+[2026-02-26 21:41:18] Epoch  58/300 | train_loss: 0.043428 | val_nmse: -15.68 dB | best: -15.68 dB | patience:  0/30 | lr: 9.56e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:41:20] Epoch  59/300 | train_loss: 0.045571 | val_nmse: -15.72 dB | best: -15.72 dB | patience:  0/30 | lr: 9.53e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:41:23] Epoch  60/300 | train_loss: 0.043307 | val_nmse: -15.43 dB | best: -15.72 dB | patience:  1/30 | lr: 9.51e-04 | time:    2s
+[2026-02-26 21:41:25] Epoch  61/300 | train_loss: 0.045883 | val_nmse: -15.40 dB | best: -15.72 dB | patience:  2/30 | lr: 9.49e-04 | time:    2s
+[2026-02-26 21:41:27] Epoch  62/300 | train_loss: 0.046093 | val_nmse: -15.72 dB | best: -15.72 dB | patience:  0/30 | lr: 9.46e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:41:29] Epoch  63/300 | train_loss: 0.042996 | val_nmse: -15.66 dB | best: -15.72 dB | patience:  1/30 | lr: 9.43e-04 | time:    2s
+[2026-02-26 21:41:31] Epoch  64/300 | train_loss: 0.045105 | val_nmse: -15.65 dB | best: -15.72 dB | patience:  2/30 | lr: 9.41e-04 | time:    2s
+[2026-02-26 21:41:33] Epoch  65/300 | train_loss: 0.043791 | val_nmse: -15.83 dB | best: -15.83 dB | patience:  0/30 | lr: 9.38e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:41:35] Epoch  66/300 | train_loss: 0.043495 | val_nmse: -15.62 dB | best: -15.83 dB | patience:  1/30 | lr: 9.36e-04 | time:    2s
+[2026-02-26 21:41:37] Epoch  67/300 | train_loss: 0.041965 | val_nmse: -15.69 dB | best: -15.83 dB | patience:  2/30 | lr: 9.33e-04 | time:    2s
+[2026-02-26 21:41:39] Epoch  68/300 | train_loss: 0.043423 | val_nmse: -15.59 dB | best: -15.83 dB | patience:  3/30 | lr: 9.30e-04 | time:    2s
+[2026-02-26 21:41:41] Epoch  69/300 | train_loss: 0.042535 | val_nmse: -15.72 dB | best: -15.83 dB | patience:  4/30 | lr: 9.27e-04 | time:    2s
+[2026-02-26 21:41:42] Epoch  70/300 | train_loss: 0.044499 | val_nmse: -15.56 dB | best: -15.83 dB | patience:  5/30 | lr: 9.24e-04 | time:    2s
+[2026-02-26 21:41:45] Epoch  71/300 | train_loss: 0.043330 | val_nmse: -15.60 dB | best: -15.83 dB | patience:  6/30 | lr: 9.21e-04 | time:    2s
+[2026-02-26 21:41:47] Epoch  72/300 | train_loss: 0.042413 | val_nmse: -15.75 dB | best: -15.83 dB | patience:  7/30 | lr: 9.18e-04 | time:    2s
+[2026-02-26 21:41:49] Epoch  73/300 | train_loss: 0.042932 | val_nmse: -15.80 dB | best: -15.83 dB | patience:  8/30 | lr: 9.15e-04 | time:    2s
+[2026-02-26 21:41:51] Epoch  74/300 | train_loss: 0.043872 | val_nmse: -15.66 dB | best: -15.83 dB | patience:  9/30 | lr: 9.12e-04 | time:    2s
+[2026-02-26 21:41:53] Epoch  75/300 | train_loss: 0.044242 | val_nmse: -15.21 dB | best: -15.83 dB | patience: 10/30 | lr: 9.09e-04 | time:    2s
+[2026-02-26 21:41:55] Epoch  76/300 | train_loss: 0.043475 | val_nmse: -15.57 dB | best: -15.83 dB | patience: 11/30 | lr: 9.05e-04 | time:    2s
+[2026-02-26 21:41:57] Epoch  77/300 | train_loss: 0.043698 | val_nmse: -15.75 dB | best: -15.83 dB | patience: 12/30 | lr: 9.02e-04 | time:    2s
+[2026-02-26 21:41:59] Epoch  78/300 | train_loss: 0.043419 | val_nmse: -15.72 dB | best: -15.83 dB | patience: 13/30 | lr: 8.99e-04 | time:    2s
+[2026-02-26 21:42:01] Epoch  79/300 | train_loss: 0.042057 | val_nmse: -15.62 dB | best: -15.83 dB | patience: 14/30 | lr: 8.95e-04 | time:    2s
+[2026-02-26 21:42:03] Epoch  80/300 | train_loss: 0.043095 | val_nmse: -15.72 dB | best: -15.83 dB | patience: 15/30 | lr: 8.92e-04 | time:    2s
+[2026-02-26 21:42:05] Epoch  81/300 | train_loss: 0.044663 | val_nmse: -15.67 dB | best: -15.83 dB | patience: 16/30 | lr: 8.89e-04 | time:    2s
+[2026-02-26 21:42:07] Epoch  82/300 | train_loss: 0.042491 | val_nmse: -15.71 dB | best: -15.83 dB | patience: 17/30 | lr: 8.85e-04 | time:    2s
+[2026-02-26 21:42:09] Epoch  83/300 | train_loss: 0.043038 | val_nmse: -15.77 dB | best: -15.83 dB | patience: 18/30 | lr: 8.81e-04 | time:    2s
+[2026-02-26 21:42:11] Epoch  84/300 | train_loss: 0.042581 | val_nmse: -15.75 dB | best: -15.83 dB | patience: 19/30 | lr: 8.78e-04 | time:    2s
+[2026-02-26 21:42:13] Epoch  85/300 | train_loss: 0.041947 | val_nmse: -15.67 dB | best: -15.83 dB | patience: 20/30 | lr: 8.74e-04 | time:    2s
+[2026-02-26 21:42:15] Epoch  86/300 | train_loss: 0.041717 | val_nmse: -15.79 dB | best: -15.83 dB | patience: 21/30 | lr: 8.70e-04 | time:    2s
+[2026-02-26 21:42:17] Epoch  87/300 | train_loss: 0.042995 | val_nmse: -15.81 dB | best: -15.83 dB | patience: 22/30 | lr: 8.67e-04 | time:    2s
+[2026-02-26 21:42:19] Epoch  88/300 | train_loss: 0.043120 | val_nmse: -15.76 dB | best: -15.83 dB | patience: 23/30 | lr: 8.63e-04 | time:    2s
+[2026-02-26 21:42:21] Epoch  89/300 | train_loss: 0.042059 | val_nmse: -15.70 dB | best: -15.83 dB | patience: 24/30 | lr: 8.59e-04 | time:    2s
+[2026-02-26 21:42:23] Epoch  90/300 | train_loss: 0.042207 | val_nmse: -15.72 dB | best: -15.83 dB | patience: 25/30 | lr: 8.55e-04 | time:    2s
+[2026-02-26 21:42:25] Epoch  91/300 | train_loss: 0.042689 | val_nmse: -15.88 dB | best: -15.88 dB | patience:  0/30 | lr: 8.51e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:42:26] Epoch  92/300 | train_loss: 0.042254 | val_nmse: -15.60 dB | best: -15.88 dB | patience:  1/30 | lr: 8.47e-04 | time:    2s
+[2026-02-26 21:42:28] Epoch  93/300 | train_loss: 0.042445 | val_nmse: -15.78 dB | best: -15.88 dB | patience:  2/30 | lr: 8.43e-04 | time:    2s
+[2026-02-26 21:42:30] Epoch  94/300 | train_loss: 0.041160 | val_nmse: -15.70 dB | best: -15.88 dB | patience:  3/30 | lr: 8.39e-04 | time:    2s
+[2026-02-26 21:42:32] Epoch  95/300 | train_loss: 0.041811 | val_nmse: -15.80 dB | best: -15.88 dB | patience:  4/30 | lr: 8.35e-04 | time:    2s
+[2026-02-26 21:42:34] Epoch  96/300 | train_loss: 0.042205 | val_nmse: -15.87 dB | best: -15.88 dB | patience:  5/30 | lr: 8.31e-04 | time:    2s
+[2026-02-26 21:42:37] Epoch  97/300 | train_loss: 0.041169 | val_nmse: -15.79 dB | best: -15.88 dB | patience:  6/30 | lr: 8.26e-04 | time:    2s
+[2026-02-26 21:42:38] Epoch  98/300 | train_loss: 0.042146 | val_nmse: -15.80 dB | best: -15.88 dB | patience:  7/30 | lr: 8.22e-04 | time:    2s
+[2026-02-26 21:42:41] Epoch  99/300 | train_loss: 0.041373 | val_nmse: -15.87 dB | best: -15.88 dB | patience:  8/30 | lr: 8.18e-04 | time:    2s
+[2026-02-26 21:42:42] Epoch 100/300 | train_loss: 0.042559 | val_nmse: -15.79 dB | best: -15.88 dB | patience:  9/30 | lr: 8.14e-04 | time:    2s
+[2026-02-26 21:42:44] Epoch 101/300 | train_loss: 0.041108 | val_nmse: -15.75 dB | best: -15.88 dB | patience: 10/30 | lr: 8.09e-04 | time:    2s
+[2026-02-26 21:42:46] Epoch 102/300 | train_loss: 0.041485 | val_nmse: -15.74 dB | best: -15.88 dB | patience: 11/30 | lr: 8.05e-04 | time:    2s
+[2026-02-26 21:42:48] Epoch 103/300 | train_loss: 0.041301 | val_nmse: -15.83 dB | best: -15.88 dB | patience: 12/30 | lr: 8.00e-04 | time:    2s
+[2026-02-26 21:42:50] Epoch 104/300 | train_loss: 0.041520 | val_nmse: -15.69 dB | best: -15.88 dB | patience: 13/30 | lr: 7.96e-04 | time:    2s
+[2026-02-26 21:42:52] Epoch 105/300 | train_loss: 0.041378 | val_nmse: -15.77 dB | best: -15.88 dB | patience: 14/30 | lr: 7.91e-04 | time:    2s
+[2026-02-26 21:42:54] Epoch 106/300 | train_loss: 0.041681 | val_nmse: -15.87 dB | best: -15.88 dB | patience: 15/30 | lr: 7.87e-04 | time:    2s
+[2026-02-26 21:42:56] Epoch 107/300 | train_loss: 0.040967 | val_nmse: -15.96 dB | best: -15.96 dB | patience:  0/30 | lr: 7.82e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:42:58] Epoch 108/300 | train_loss: 0.041047 | val_nmse: -15.75 dB | best: -15.96 dB | patience:  1/30 | lr: 7.78e-04 | time:    2s
+[2026-02-26 21:43:00] Epoch 109/300 | train_loss: 0.042682 | val_nmse: -15.62 dB | best: -15.96 dB | patience:  2/30 | lr: 7.73e-04 | time:    2s
+[2026-02-26 21:43:02] Epoch 110/300 | train_loss: 0.040610 | val_nmse: -15.90 dB | best: -15.96 dB | patience:  3/30 | lr: 7.68e-04 | time:    2s
+[2026-02-26 21:43:04] Epoch 111/300 | train_loss: 0.041690 | val_nmse: -15.78 dB | best: -15.96 dB | patience:  4/30 | lr: 7.64e-04 | time:    2s
+[2026-02-26 21:43:06] Epoch 112/300 | train_loss: 0.041311 | val_nmse: -15.75 dB | best: -15.96 dB | patience:  5/30 | lr: 7.59e-04 | time:    2s
+[2026-02-26 21:43:08] Epoch 113/300 | train_loss: 0.040040 | val_nmse: -15.68 dB | best: -15.96 dB | patience:  6/30 | lr: 7.54e-04 | time:    2s
+[2026-02-26 21:43:10] Epoch 114/300 | train_loss: 0.040428 | val_nmse: -15.79 dB | best: -15.96 dB | patience:  7/30 | lr: 7.49e-04 | time:    2s
+[2026-02-26 21:43:12] Epoch 115/300 | train_loss: 0.040900 | val_nmse: -15.67 dB | best: -15.96 dB | patience:  8/30 | lr: 7.44e-04 | time:    2s
+[2026-02-26 21:43:14] Epoch 116/300 | train_loss: 0.042006 | val_nmse: -15.97 dB | best: -15.97 dB | patience:  0/30 | lr: 7.40e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:43:16] Epoch 117/300 | train_loss: 0.039972 | val_nmse: -15.68 dB | best: -15.97 dB | patience:  1/30 | lr: 7.35e-04 | time:    2s
+[2026-02-26 21:43:18] Epoch 118/300 | train_loss: 0.039585 | val_nmse: -15.85 dB | best: -15.97 dB | patience:  2/30 | lr: 7.30e-04 | time:    2s
+[2026-02-26 21:43:21] Epoch 119/300 | train_loss: 0.039669 | val_nmse: -15.97 dB | best: -15.97 dB | patience:  0/30 | lr: 7.25e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:43:23] Epoch 120/300 | train_loss: 0.040187 | val_nmse: -15.80 dB | best: -15.97 dB | patience:  1/30 | lr: 7.20e-04 | time:    2s
+[2026-02-26 21:43:25] Epoch 121/300 | train_loss: 0.039723 | val_nmse: -15.90 dB | best: -15.97 dB | patience:  2/30 | lr: 7.15e-04 | time:    2s
+[2026-02-26 21:43:27] Epoch 122/300 | train_loss: 0.040518 | val_nmse: -15.90 dB | best: -15.97 dB | patience:  3/30 | lr: 7.10e-04 | time:    2s
+[2026-02-26 21:43:29] Epoch 123/300 | train_loss: 0.039885 | val_nmse: -15.79 dB | best: -15.97 dB | patience:  4/30 | lr: 7.05e-04 | time:    2s
+[2026-02-26 21:43:31] Epoch 124/300 | train_loss: 0.040668 | val_nmse: -15.99 dB | best: -15.99 dB | patience:  0/30 | lr: 7.00e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:43:33] Epoch 125/300 | train_loss: 0.039863 | val_nmse: -15.95 dB | best: -15.99 dB | patience:  1/30 | lr: 6.94e-04 | time:    2s
+[2026-02-26 21:43:35] Epoch 126/300 | train_loss: 0.040804 | val_nmse: -15.79 dB | best: -15.99 dB | patience:  2/30 | lr: 6.89e-04 | time:    2s
+[2026-02-26 21:43:37] Epoch 127/300 | train_loss: 0.040842 | val_nmse: -15.65 dB | best: -15.99 dB | patience:  3/30 | lr: 6.84e-04 | time:    2s
+[2026-02-26 21:43:39] Epoch 128/300 | train_loss: 0.040824 | val_nmse: -15.89 dB | best: -15.99 dB | patience:  4/30 | lr: 6.79e-04 | time:    2s
+[2026-02-26 21:43:41] Epoch 129/300 | train_loss: 0.039803 | val_nmse: -15.91 dB | best: -15.99 dB | patience:  5/30 | lr: 6.74e-04 | time:    2s
+[2026-02-26 21:43:44] Epoch 130/300 | train_loss: 0.040806 | val_nmse: -15.96 dB | best: -15.99 dB | patience:  6/30 | lr: 6.68e-04 | time:    2s
+[2026-02-26 21:43:46] Epoch 131/300 | train_loss: 0.040075 | val_nmse: -15.91 dB | best: -15.99 dB | patience:  7/30 | lr: 6.63e-04 | time:    2s
+[2026-02-26 21:43:48] Epoch 132/300 | train_loss: 0.039835 | val_nmse: -15.83 dB | best: -15.99 dB | patience:  8/30 | lr: 6.58e-04 | time:    2s
+[2026-02-26 21:43:50] Epoch 133/300 | train_loss: 0.039712 | val_nmse: -15.98 dB | best: -15.99 dB | patience:  9/30 | lr: 6.53e-04 | time:    2s
+[2026-02-26 21:43:52] Epoch 134/300 | train_loss: 0.040138 | val_nmse: -15.77 dB | best: -15.99 dB | patience: 10/30 | lr: 6.47e-04 | time:    2s
+[2026-02-26 21:43:53] Epoch 135/300 | train_loss: 0.039059 | val_nmse: -15.97 dB | best: -15.99 dB | patience: 11/30 | lr: 6.42e-04 | time:    2s
+[2026-02-26 21:43:55] Epoch 136/300 | train_loss: 0.040411 | val_nmse: -16.03 dB | best: -16.03 dB | patience:  0/30 | lr: 6.37e-04 | time:    2s | ** saved best model **
+[2026-02-26 21:43:57] Epoch 137/300 | train_loss: 0.039111 | val_nmse: -15.80 dB | best: -16.03 dB | patience:  1/30 | lr: 6.31e-04 | time:    2s
+[2026-02-26 21:43:59] Epoch 138/300 | train_loss: 0.040750 | val_nmse: -15.94 dB | best: -16.03 dB | patience:  2/30 | lr: 6.26e-04 | time:    2s
+[2026-02-26 21:44:01] Epoch 139/300 | train_loss: 0.041186 | val_nmse: -15.85 dB | best: -16.03 dB | patience:  3/30 | lr: 6.21e-04 | time:    2s
+[2026-02-26 21:44:03] Epoch 140/300 | train_loss: 0.039245 | val_nmse: -15.84 dB | best: -16.03 dB | patience:  4/30 | lr: 6.15e-04 | time:    2s
+[2026-02-26 21:44:05] Epoch 141/300 | train_loss: 0.039558 | val_nmse: -15.89 dB | best: -16.03 dB | patience:  5/30 | lr: 6.10e-04 | time:    2s
+[2026-02-26 21:44:07] Epoch 142/300 | train_loss: 0.039542 | val_nmse: -15.69 dB | best: -16.03 dB | patience:  6/30 | lr: 6.04e-04 | time:    2s
+[2026-02-26 21:44:09] Epoch 143/300 | train_loss: 0.039573 | val_nmse: -15.88 dB | best: -16.03 dB | patience:  7/30 | lr: 5.99e-04 | time:    2s
+[2026-02-26 21:44:11] Epoch 144/300 | train_loss: 0.038680 | val_nmse: -15.97 dB | best: -16.03 dB | patience:  8/30 | lr: 5.93e-04 | time:    2s
+[2026-02-26 21:44:13] Epoch 145/300 | train_loss: 0.039990 | val_nmse: -15.83 dB | best: -16.03 dB | patience:  9/30 | lr: 5.88e-04 | time:    2s
+[2026-02-26 21:44:15] Epoch 146/300 | train_loss: 0.039392 | val_nmse: -15.94 dB | best: -16.03 dB | patience: 10/30 | lr: 5.82e-04 | time:    2s
+[2026-02-26 21:44:17] Epoch 147/300 | train_loss: 0.039858 | val_nmse: -15.92 dB | best: -16.03 dB | patience: 11/30 | lr: 5.77e-04 | time:    2s
+[2026-02-26 21:44:19] Epoch 148/300 | train_loss: 0.039392 | val_nmse: -15.90 dB | best: -16.03 dB | patience: 12/30 | lr: 5.71e-04 | time:    2s
+[2026-02-26 21:44:21] Epoch 149/300 | train_loss: 0.039757 | val_nmse: -15.98 dB | best: -16.03 dB | patience: 13/30 | lr: 5.66e-04 | time:    2s
+[2026-02-26 21:44:22] Epoch 150/300 | train_loss: 0.037880 | val_nmse: -15.96 dB | best: -16.03 dB | patience: 14/30 | lr: 5.60e-04 | time:    2s
+[2026-02-26 21:44:24] Epoch 151/300 | train_loss: 0.038742 | val_nmse: -15.98 dB | best: -16.03 dB | patience: 15/30 | lr: 5.55e-04 | time:    2s
+[2026-02-26 21:44:26] Epoch 152/300 | train_loss: 0.038971 | val_nmse: -15.94 dB | best: -16.03 dB | patience: 16/30 | lr: 5.49e-04 | time:    2s
+[2026-02-26 21:44:28] Epoch 153/300 | train_loss: 0.038508 | val_nmse: -15.99 dB | best: -16.03 dB | patience: 17/30 | lr: 5.44e-04 | time:    2s
+[2026-02-26 21:44:30] Epoch 154/300 | train_loss: 0.038631 | val_nmse: -15.96 dB | best: -16.03 dB | patience: 18/30 | lr: 5.38e-04 | time:    2s
+[2026-02-26 21:44:32] Epoch 155/300 | train_loss: 0.038680 | val_nmse: -15.92 dB | best: -16.03 dB | patience: 19/30 | lr: 5.33e-04 | time:    2s
+[2026-02-26 21:44:34] Epoch 156/300 | train_loss: 0.037964 | val_nmse: -15.93 dB | best: -16.03 dB | patience: 20/30 | lr: 5.27e-04 | time:    2s
+[2026-02-26 21:44:36] Epoch 157/300 | train_loss: 0.039529 | val_nmse: -15.92 dB | best: -16.03 dB | patience: 21/30 | lr: 5.22e-04 | time:    2s
+[2026-02-26 21:44:38] Epoch 158/300 | train_loss: 0.039788 | val_nmse: -15.80 dB | best: -16.03 dB | patience: 22/30 | lr: 5.16e-04 | time:    2s
+[2026-02-26 21:44:40] Epoch 159/300 | train_loss: 0.039004 | val_nmse: -15.88 dB | best: -16.03 dB | patience: 23/30 | lr: 5.11e-04 | time:    2s
+[2026-02-26 21:44:42] Epoch 160/300 | train_loss: 0.038115 | val_nmse: -15.92 dB | best: -16.03 dB | patience: 24/30 | lr: 5.05e-04 | time:    2s
+[2026-02-26 21:44:44] Epoch 161/300 | train_loss: 0.038538 | val_nmse: -15.89 dB | best: -16.03 dB | patience: 25/30 | lr: 4.99e-04 | time:    2s
+[2026-02-26 21:44:46] Epoch 162/300 | train_loss: 0.039053 | val_nmse: -15.81 dB | best: -16.03 dB | patience: 26/30 | lr: 4.94e-04 | time:    2s
+[2026-02-26 21:44:48] Epoch 163/300 | train_loss: 0.038595 | val_nmse: -15.99 dB | best: -16.03 dB | patience: 27/30 | lr: 4.88e-04 | time:    2s
+[2026-02-26 21:44:50] Epoch 164/300 | train_loss: 0.038898 | val_nmse: -15.91 dB | best: -16.03 dB | patience: 28/30 | lr: 4.83e-04 | time:    2s
+[2026-02-26 21:44:52] Epoch 165/300 | train_loss: 0.038112 | val_nmse: -15.91 dB | best: -16.03 dB | patience: 29/30 | lr: 4.77e-04 | time:    2s
+[2026-02-26 21:44:54] Epoch 166/300 | train_loss: 0.038748 | val_nmse: -15.90 dB | best: -16.03 dB | patience: 30/30 | lr: 4.72e-04 | time:    2s
+[2026-02-26 21:44:54] Early stopping at epoch 166
+[2026-02-26 21:44:54] RealUNet training complete | best_val_nmse: -16.03 dB | total_time: 333s
+[2026-02-26 21:44:54] STATUS: completed
+[2026-02-26 21:44:54] All models trained successfully.
+[2026-02-26 21:49:48] === Starting Evaluation ===
+[2026-02-26 21:50:28] SNR= 5dB | LS: -6.42 MMSE: -9.18 DNN: -7.70 Real:  0.78 Complex:  3.16 dB
+[2026-02-26 21:50:32] SNR=10dB | LS:-10.67 MMSE:-13.19 DNN:-11.52 Real: -0.42 Complex:  2.51 dB
+[2026-02-26 21:50:36] SNR=15dB | LS:-14.24 MMSE:-17.97 DNN:-14.99 Real: -0.67 Complex:  2.27 dB
+[2026-02-26 21:50:39] SNR=20dB | LS:-16.29 MMSE:-23.00 DNN:-17.43 Real: -0.55 Complex:  2.36 dB
+[2026-02-26 21:50:43] SNR=25dB | LS:-17.42 MMSE:-28.02 DNN:-18.59 Real: -1.38 Complex:  2.53 dB
+[2026-02-26 21:50:43] STATUS: evaluation_completed
+[2026-02-26 22:17:31] === Starting Evaluation ===
+[2026-02-26 22:18:23] SNR= 5dB | LS: -6.42 MMSE: -9.18 DNN: -7.70 Real: -6.18 Complex: -5.88 dB
+[2026-02-26 22:18:37] SNR=10dB | LS:-10.67 MMSE:-13.19 DNN:-11.52 Real: -9.15 Complex: -9.35 dB
+[2026-02-26 22:18:51] SNR=15dB | LS:-14.24 MMSE:-17.97 DNN:-14.99 Real:-13.33 Complex:-13.64 dB
+[2026-02-26 22:19:04] SNR=20dB | LS:-16.29 MMSE:-23.00 DNN:-17.43 Real:-17.91 Complex:-17.29 dB
+[2026-02-26 22:19:18] SNR=25dB | LS:-17.42 MMSE:-28.02 DNN:-18.59 Real:-20.57 Complex:-19.79 dB
+[2026-02-26 22:19:18] STATUS: evaluation_completed
+[2026-02-26 22:36:37] === Starting Evaluation ===
+[2026-02-26 22:37:20] SNR= 5dB | LS: -6.42 MMSE: -9.18 DNN: -7.70 Real: -5.86 Complex: -5.32 dB
+[2026-02-26 22:37:23] SNR=10dB | LS:-10.67 MMSE:-13.19 DNN:-11.52 Real: -8.67 Complex: -8.55 dB
+[2026-02-26 22:37:26] SNR=15dB | LS:-14.24 MMSE:-17.97 DNN:-14.99 Real:-12.41 Complex:-12.52 dB
+[2026-02-26 22:37:30] SNR=20dB | LS:-16.29 MMSE:-23.00 DNN:-17.43 Real:-16.92 Complex:-15.31 dB
+[2026-02-26 22:37:33] SNR=25dB | LS:-17.42 MMSE:-28.02 DNN:-18.59 Real:-19.01 Complex:-17.12 dB
+[2026-02-26 22:37:33] STATUS: evaluation_completed
+[2026-02-26 22:47:58] === Starting Evaluation ===
+[2026-02-26 22:48:51] SNR= 5dB | LS: -6.42 MMSE: -9.18 DNN: -7.70 Real: -6.18 Complex: -5.88 dB
+[2026-02-26 22:49:04] SNR=10dB | LS:-10.67 MMSE:-13.19 DNN:-11.52 Real: -9.15 Complex: -9.35 dB
+[2026-02-26 22:49:17] SNR=15dB | LS:-14.24 MMSE:-17.97 DNN:-14.99 Real:-13.33 Complex:-13.64 dB
+[2026-02-26 22:49:30] SNR=20dB | LS:-16.29 MMSE:-23.00 DNN:-17.43 Real:-17.91 Complex:-17.29 dB
+[2026-02-26 22:49:44] SNR=25dB | LS:-17.42 MMSE:-28.02 DNN:-18.59 Real:-20.57 Complex:-19.79 dB
+[2026-02-26 22:49:44] STATUS: evaluation_completed

@@ -1,0 +1,78 @@
+{
+  "system_model": "Consider an OFDM system with $K=64$ subcarriers. The transmitted signal on subcarrier $k$ is denoted as $X[k] \\in \\mathbb{C}$, where $k = 0, 1, \\ldots, K-1$. The frequency-domain channel response is $H[k] \\in \\mathbb{C}$, and the received signal is given by:\n\\begin{equation}\nY[k] = H[k] \\cdot X[k] + N[k]\n\\end{equation}\nwhere $N[k] \\sim \\mathcal{CN}(0, \\sigma^2)$ is complex Gaussian noise. A comb-type pilot pattern is employed with $P=16$ pilots uniformly spaced every 4th subcarrier at positions $\\mathcal{P} = \\{0, 4, 8, \\ldots, 60\\}$. The least squares (LS) channel estimate at pilot positions is:\n\\begin{equation}\n\\hat{H}_{\\text{LS}}[k_p] = \\frac{Y[k_p]}{X[k_p]}, \\quad k_p \\in \\mathcal{P}\n\\end{equation}\nLinear interpolation extends these pilot estimates to all $K$ subcarriers, yielding the initial estimate $\\hat{\\mathbf{h}}_{\\text{LS}} \\in \\mathbb{C}^K$.",
+  
+  "notation_table": {
+    "K": "Total number of OFDM subcarriers (64)",
+    "X[k]": "Transmitted signal on subcarrier k",
+    "H[k]": "Channel frequency response at subcarrier k",
+    "Y[k]": "Received signal on subcarrier k",
+    "N[k]": "Complex Gaussian noise at subcarrier k",
+    "\\sigma^2": "Noise variance",
+    "P": "Number of pilot subcarriers (16)",
+    "\\mathcal{P}": "Set of pilot subcarrier indices",
+    "\\hat{H}_{\\text{LS}}[k_p]": "LS channel estimate at pilot position k_p",
+    "\\hat{\\mathbf{h}}_{\\text{LS}}": "Interpolated LS channel estimate vector",
+    "L": "Number of channel taps (8)",
+    "h_\\ell": "Channel tap coefficient at delay \\ell",
+    "\\tau": "Power delay profile decay constant",
+    "\\mathbf{h}_t": "Channel vector at diffusion timestep t",
+    "\\mathbf{h}_0": "Clean channel vector (ground truth)",
+    "\\bar{\\alpha}_t": "Cumulative noise schedule parameter",
+    "\\alpha_t": "Single-step noise schedule parameter",
+    "\\boldsymbol{\\epsilon}": "Complex Gaussian noise vector",
+    "\\boldsymbol{\\epsilon}_\\theta": "Learned noise prediction network",
+    "T": "Total number of diffusion steps (500)",
+    "\\sigma_t": "Reverse process noise standard deviation",
+    "\\mathbf{z}": "Standard complex Gaussian noise",
+    "\\mathcal{CN}": "Complex normal distribution",
+    "\\mathbf{I}": "Identity matrix",
+    "\\theta": "Neural network parameters",
+    "a(\\mathbf{z})": "Predicted amplitude from Phase Interaction Layer",
+    "\\phi(\\mathbf{z})": "Predicted phase from Phase Interaction Layer",
+    "f_a": "Amplitude prediction head",
+    "f_\\phi": "Phase prediction head",
+    "\\hat{\\epsilon}_{\\text{Re}}": "Real part of predicted noise",
+    "\\hat{\\epsilon}_{\\text{Im}}": "Imaginary part of predicted noise",
+    "\\mathcal{L}(\\theta)": "Training loss function",
+    "\\mathbf{R}_{hh}": "Channel covariance matrix"
+  },
+  
+  "problem_statement": "The objective is to learn a complex-valued denoising diffusion model that estimates the channel vector $\\mathbf{h} \\in \\mathbb{C}^K$ from noisy pilot observations. The model is trained to minimize the denoising score matching objective:\n\\begin{equation}\n\\mathcal{L}(\\theta) = \\mathbb{E}_{t \\sim \\mathcal{U}[1,T], \\mathbf{h}_0 \\sim p_{\\text{data}}, \\boldsymbol{\\epsilon} \\sim \\mathcal{CN}(\\mathbf{0}, \\mathbf{I})} \\left[ \\left\\| \\boldsymbol{\\epsilon} - \\boldsymbol{\\epsilon}_\\theta(\\mathbf{h}_t, t) \\right\\|^2 \\right]\n\\end{equation}\nwhere $\\mathbf{h}_t = \\sqrt{\\bar{\\alpha}_t} \\mathbf{h}_0 + \\sqrt{1 - \\bar{\\alpha}_t} \\boldsymbol{\\epsilon}$ is the noised channel at timestep $t$, and $\\|\\mathbf{z}\\|^2 = \\sum_{k=0}^{K-1} |z_k|^2$ is the complex squared norm. The denoiser $\\boldsymbol{\\epsilon}_\\theta$ employs a novel Phase Interaction Layer that decomposes the prediction into amplitude and phase components:\n\\begin{equation}\n\\hat{\\epsilon}_k = a_k \\cdot e^{j\\phi_k} = a_k \\cos(\\phi_k) + j \\cdot a_k \\sin(\\phi_k)\n\\end{equation}\nwhere $a_k = \\text{Softplus}(f_a(\\mathbf{z}))_k \\geq 0$ and $\\phi_k = f_\\phi(\\mathbf{z})_k \\in \\mathbb{R}$.",
+  
+  "theoretical_analysis": "**Computational Complexity**: The forward diffusion process requires $O(K)$ operations per timestep. The U-Net backbone with 3 down/up blocks has complexity $O(K \\cdot C^2)$ where $C \\in \\{128, 256, 512\\}$ is the channel dimension at each scale. The Phase Interaction Layer adds negligible overhead with $O(K)$ operations for the amplitude/phase composition. Total inference complexity is $O(T \\cdot K \\cdot C^2) \\approx O(10^8)$ FLOPs for $T=500$ steps.\n\n**Memory Requirements**: The model stores approximately 180K parameters (U-Net: ~170K, Phase Interaction heads: ~10K). During training, memory scales as $O(B \\cdot K \\cdot C)$ for batch size $B$, requiring ~2GB for $B=64$.\n\n**Convergence Analysis**: The cosine noise schedule ensures $\\bar{\\alpha}_T \\approx 0$, making $\\mathbf{h}_T \\approx \\mathcal{CN}(\\mathbf{0}, \\mathbf{I})$ for sufficient noise saturation. The reverse process converges to the data distribution under standard DDPM assumptions, with the Phase Interaction Layer preserving the complex manifold structure through its amplitude-phase factorization.\n\n**Pilot Consistency**: The RePaint-style pilot replacement maintains exact consistency at observed positions while allowing the diffusion model to denoise and interpolate the remaining subcarriers. This creates a constrained optimization problem that leverages both the learned prior and the observations.",
+  
+  "evaluation_metrics": [
+    {
+      "name": "NMSE",
+      "formula": "\\text{NMSE}(\\text{dB}) = 10 \\log_{10} \\left( \\frac{\\sum_{k=0}^{K-1} |\\hat{H}[k] - H[k]|^2}{\\sum_{k=0}^{K-1} |H[k]|^2} \\right)",
+      "description": "Normalized Mean Square Error in dB, measuring the relative channel estimation error across all subcarriers"
+    },
+    {
+      "name": "BER",
+      "formula": "\\text{BER} = \\frac{1}{N_b} \\sum_{i=1}^{N_b} \\mathbb{1}[\\hat{b}_i \\neq b_i]",
+      "description": "Bit Error Rate after Zero-Forcing equalization using the estimated channel, where $\\hat{X}[k] = Y[k] / \\hat{H}[k]$ and $N_b$ is the total number of transmitted bits"
+    },
+    {
+      "name": "Phase Error",
+      "formula": "\\text{PE} = \\frac{1}{K} \\sum_{k=0}^{K-1} |\\angle\\hat{H}[k] - \\angle H[k]|_{\\text{wrap}}",
+      "description": "Average wrapped phase error across subcarriers, measuring the phase tracking accuracy of the estimator"
+    }
+  ],
+  
+  "baseline_methods": [
+    "LS estimator: Direct pilot division $\\hat{H}_{\\text{LS}}[k_p] = Y[k_p]/X[k_p]$ followed by linear interpolation",
+    "MMSE estimator: $\\hat{\\mathbf{h}}_{\\text{MMSE}} = \\mathbf{R}_{hh}(\\mathbf{R}_{hh} + \\sigma^2/\\text{SNR} \\cdot \\mathbf{I})^{-1} \\hat{\\mathbf{h}}_{\\text{LS}}$ with perfect channel statistics",
+    "Real-valued U-Net denoiser: Identical U-Net architecture processing [Re, Im] channels but with standard 2-channel output (no Phase Interaction Layer)",
+    "DNN denoiser: 3-layer feedforward network with ReLU activations directly mapping $\\hat{\\mathbf{h}}_{\\text{LS}}$ to refined estimate"
+  ],
+  
+  "latex_equations": [
+    "\\begin{equation}\nY[k] = H[k] \\cdot X[k] + N[k], \\quad k = 0, 1, \\ldots, K-1\n\\end{equation}",
+    "\\begin{equation}\nH[k] = \\sum_{\\ell=0}^{L-1} h_\\ell e^{-j2\\pi k\\ell/K}, \\quad h_\\ell \\sim \\mathcal{CN}(0, e^{-\\ell/\\tau})\n\\end{equation}",
+    "\\begin{equation}\n\\mathbf{h}_t = \\sqrt{\\bar{\\alpha}_t} \\mathbf{h}_0 + \\sqrt{1 - \\bar{\\alpha}_t} \\boldsymbol{\\epsilon}, \\quad \\boldsymbol{\\epsilon} \\sim \\mathcal{CN}(\\mathbf{0}, \\mathbf{I})\n\\end{equation}",
+    "\\begin{equation}\n\\mathbf{h}_{t-1} = \\frac{1}{\\sqrt{\\alpha_t}} \\left( \\mathbf{h}_t - \\frac{1-\\alpha_t}{\\sqrt{1-\\bar{\\alpha}_t}} \\boldsymbol{\\epsilon}_\\theta(\\mathbf{h}_t, t) \\right) + \\sigma_t \\mathbf{z}\n\\end{equation}",
+    "\\begin{equation}\n\\hat{\\epsilon}_{\\text{Re}}[k] = a_k \\cdot \\cos(\\phi_k), \\quad \\hat{\\epsilon}_{\\text{Im}}[k] = a_k \\cdot \\sin(\\phi_k)\n\\end{equation}",
+    "\\begin{equation}\n\\mathcal{L}(\\theta) = \\mathbb{E}_{t, \\mathbf{h}_0, \\boldsymbol{\\epsilon}} \\left[ \\sum_{k=0}^{K-1} \\left| \\epsilon_k - \\hat{\\epsilon}_{\\theta,k}(\\mathbf{h}_t, t) \\right|^2 \\right]\n\\end{equation}",
+    "\\begin{equation}\n\\mathbf{h}_{t-1}[k_p] \\leftarrow \\sqrt{\\bar{\\alpha}_{t-1}} \\hat{H}_{\\text{LS}}[k_p] + \\sqrt{1-\\bar{\\alpha}_{t-1}} \\epsilon_p, \\quad k_p \\in \\mathcal{P}\n\\end{equation}"
+  ]
+}

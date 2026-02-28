@@ -1,0 +1,43 @@
+{
+  "figures": [
+    {
+      "filename": "fig1_nmse.pdf",
+      "caption": "NMSE performance comparison across SNR values. MMSE provides theoretical lower bound with perfect channel statistics, while proposed ComplexUNet shows marginal differences compared to RealUNet ablation.",
+      "latex_include": "\\includegraphics[width=\\columnwidth]{figures/fig1_nmse.pdf}"
+    },
+    {
+      "filename": "fig2_ber.pdf",
+      "caption": "BER performance after zero-forcing equalization. All methods show similar BER trends, with MMSE achieving lowest error rates and diffusion models performing comparably to classical estimators.",
+      "latex_include": "\\includegraphics[width=\\columnwidth]{figures/fig2_ber.pdf}"
+    },
+    {
+      "filename": "fig3_training.pdf",
+      "caption": "Training convergence comparison between ComplexUNet and RealUNet. Both models achieve similar final validation NMSE (~-16 dB) with comparable training times, indicating that the Phase Interaction Layer does not improve learning efficiency.",
+      "latex_include": "\\includegraphics[width=\\columnwidth]{figures/fig3_training.pdf}"
+    }
+  ],
+  "tables": [
+    {
+      "latex_code": "\\begin{table}[t]\n\\centering\n\\caption{NMSE Performance Comparison (dB)}\n\\label{tab:nmse_comparison}\n\\begin{tabular}{@{}lccccc|c@{}}\n\\toprule\nMethod & 5 dB & 10 dB & 15 dB & 20 dB & 25 dB & Average \\\\\n\\midrule\nLS & -6.42 & -10.67 & -14.24 & -16.29 & -17.42 & -13.01 \\\\\nMMSE & \\textbf{-9.18} & \\textbf{-13.19} & \\textbf{-17.97} & \\textbf{-23.00} & \\textbf{-28.02} & \\textbf{-18.27} \\\\\nDNN & -7.70 & -11.52 & -14.99 & -17.43 & -18.59 & -14.05 \\\\\nRealUNet & -6.18 & -9.15 & -13.33 & -17.91 & -20.57 & -13.43 \\\\\nComplexUNet & -5.88 & -9.35 & -13.64 & -17.29 & -19.79 & -13.19 \\\\\n\\bottomrule\n\\end{tabular}\n\\end{table}",
+      "caption": "Comprehensive NMSE comparison showing MMSE dominance and marginal differences between proposed ComplexUNet and RealUNet ablation study."
+    }
+  ],
+  "key_findings": [
+    "MMSE estimator dominates all methods with 5-10 dB advantage, but requires perfect channel statistics unavailable in practice",
+    "ComplexUNet with Phase Interaction Layer shows marginal performance compared to RealUNet ablation (+0.24 dB average degradation)",
+    "Both diffusion models (ComplexUNet, RealUNet) underperform simple 3-layer DNN baseline by ~0.6-0.9 dB",
+    "Phase Interaction Layer provides mixed results: wins at medium SNR (10-15 dB) but loses at low and high SNR",
+    "Training convergence is similar for both models (~153-166 epochs, 5-6 minutes), suggesting architectural complexity doesn't improve learning efficiency"
+  ],
+  "analysis_narrative": "The experimental results reveal several important insights about the proposed complex-valued diffusion denoiser with Quantum Phase Rotation Gate for OFDM channel estimation.\n\n**Performance Analysis**: The ComplexUNet with Phase Interaction Layer achieves an average NMSE of -13.19 dB compared to -13.43 dB for the RealUNet ablation, representing a marginal 0.24 dB degradation rather than the hypothesized improvement. This suggests that the explicit amplitude-phase decomposition via Euler formula does not provide the expected benefit for this channel estimation task.\n\n**SNR-Dependent Behavior**: The Phase Interaction Layer shows interesting SNR-dependent behavior. At medium SNR (10-15 dB), ComplexUNet outperforms RealUNet by 0.2-0.3 dB, suggesting the phase modeling may help in moderate noise conditions. However, at low SNR (5 dB) and high SNR (20-25 dB), RealUNet dominates by 0.3-0.8 dB. This could indicate that explicit phase modeling becomes counterproductive when noise overwhelms phase information (low SNR) or when phase is already well-preserved (high SNR).\n\n**Diffusion Model Limitations**: Both diffusion models significantly underperform the simple 3-layer DNN baseline (-14.05 dB average), suggesting that the DDPM formulation may not be well-suited for this channel estimation task. The 500-step reverse sampling process with RePaint pilot replacement appears to introduce artifacts that degrade performance compared to direct regression. The deterministic DDIM inference strategy might benefit from stochastic sampling or fewer denoising steps.\n\n**Training Efficiency**: Despite similar parameter counts (~286K), both models converge to comparable validation NMSE (-16.01 dB vs -16.03 dB) within 150-170 epochs. The Phase Interaction Layer does not improve training dynamics or final convergence, suggesting the architectural complexity is not justified by the performance gains.\n\n**Methodological Insights**: The MMSE baseline's dominance (5-10 dB advantage) highlights the importance of channel statistics. The diffusion models attempt to learn these statistics from data but fall short of the theoretical optimum. The 5-channel conditioning (real/imaginary LS estimates + pilot mask) may not provide sufficient structural information for effective denoising. Alternative conditioning strategies, such as frequency-domain sparsity priors or pilot-specific noise modeling, could improve performance.\n\n**Quantum-Inspired Architecture Assessment**: The Quantum Phase Rotation Gate hypothesis—that Rz rotations would better capture quadrature entanglement—is not supported by these results. The marginal performance differences suggest that standard complex-valued operations in RealUNet are sufficient for modeling phase relationships in OFDM channels. The explicit amplitude-phase factorization may actually constrain the model's representational flexibility.",
+  "figure_generation_code": "Generated 3 publication-quality figures using consistent colors/markers: NMSE vs SNR (linear scale), BER vs SNR (log scale), and training convergence curves with performance annotations.",
+  "metadata": {
+    "stage_name": "Analysis",
+    "model_used": "anthropic/claude-sonnet-4-20250514",
+    "started_at": "2026-02-26T22:29:47.791598+00:00",
+    "completed_at": null,
+    "total_tokens": 0,
+    "total_cost_usd": 0.0,
+    "revision_number": 0
+  }
+}

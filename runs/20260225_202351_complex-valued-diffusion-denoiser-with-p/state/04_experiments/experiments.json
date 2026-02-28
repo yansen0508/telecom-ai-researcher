@@ -1,0 +1,60 @@
+{
+  "experiment_configs": [
+    {
+      "name": "Complex-Valued Diffusion OFDM Channel Estimation",
+      "parameters": {
+        "architecture": "ComplexUNet with Phase Interaction Layer",
+        "K_subcarriers": 64,
+        "P_pilots": 16,
+        "L_channel_taps": 8,
+        "diffusion_steps": 500,
+        "schedule": "cosine",
+        "model_parameters": "~200K",
+        "training_epochs": 100,
+        "batch_size": 64,
+        "learning_rate": 0.001,
+        "snr_range": [
+          0,
+          5,
+          10,
+          15,
+          20,
+          25
+        ],
+        "modulation": "QPSK"
+      },
+      "description": "Novel complex-valued diffusion denoiser with Phase Interaction Output Layer that explicitly decomposes predictions into amplitude and phase components via Euler formula. Trains ComplexUNet and RealUNet (ablation) with RePaint-style pilot replacement during inference."
+    }
+  ],
+  "simulation_code": "Generated 5 complete PyTorch files: (1) models.py - ComplexUNet with Phase Interaction Layer, RealUNet ablation, SimpleDNN baseline, and DiffusionSchedule with cosine beta schedule; (2) data_generation.py - OFDM channel data with Rayleigh fading, exponential PDP, QPSK pilots, and LS estimation; (3) train_model.py - Training script with real-time logging to training.log, early stopping, and MPS device support; (4) evaluate.py - Evaluation of LS, MMSE, DNN, RealUNet, ComplexUNet with DDPM reverse sampling and RePaint; (5) README.md - Complete run instructions with monitoring via tail -f training.log",
+  "code_path": "/Users/senyan/Agent_Project/telecom-ai-researcher/runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/04_experiments/code",
+  "raw_results": {},
+  "result_tables": [],
+  "execution_logs": [
+    "Data generation completed successfully in <1 minute",
+    "Generated train_data.npz: (5000, 2, 64) samples at SNR=10dB",
+    "Generated test_data_{0,5,10,15,20,25}dB.npz: (1000, 2, 64) samples each",
+    "Pilot pattern: 16 comb-type pilots every 4th subcarrier [0,4,8,...,60]",
+    "Channel model: L=8 taps with exponential PDP, Rayleigh fading",
+    "LS NMSE validation: -1.55dB @ 0dB SNR to -17.52dB @ 25dB SNR (monotonic)",
+    "Model parameter counts verified: ComplexUNet=219K, RealUNet=219K, SimpleDNN=132K",
+    "All models imported and forward pass tested successfully",
+    "Training ready - user should run: python train_model.py in VSCode"
+  ],
+  "debug_history": [
+    {
+      "error_message": "Function name typo in evaluate.py: ddmp_reverse_sampling should be ddpm_reverse_sampling",
+      "fix_description": "Corrected function name from ddmp to ddpm in evaluate.py line 427 and 440",
+      "success": true
+    }
+  ],
+  "metadata": {
+    "stage_name": "Experiments",
+    "model_used": "anthropic/claude-sonnet-4-20250514",
+    "started_at": "2026-02-25T19:40:09.902520+00:00",
+    "completed_at": null,
+    "total_tokens": 0,
+    "total_cost_usd": 0.0,
+    "revision_number": 0
+  }
+}

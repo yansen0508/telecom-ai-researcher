@@ -1,0 +1,12 @@
+{
+  "ComplexUNet": {
+    "best_val_nmse": -16.01147648692131,
+    "total_time": 311.0098922252655,
+    "status": "completed"
+  },
+  "RealUNet": {
+    "best_val_nmse": -16.03469142317772,
+    "total_time": 333.2434313297272,
+    "status": "completed"
+  }
+}

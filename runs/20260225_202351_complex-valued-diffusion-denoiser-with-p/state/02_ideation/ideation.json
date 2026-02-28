@@ -1,0 +1,52 @@
+{
+  "candidate_ideas": [
+    {
+      "title": "Complex-Valued DDPM with Wave-Function Phase Interaction Layer for OFDM Channel Estimation",
+      "abstract_sketch": "This work introduces a complex-valued denoising diffusion probabilistic model (CV-DDPM) that leverages a wave-function-inspired phase interaction layer for OFDM channel estimation. The denoiser uses a 2-channel U-Net backbone processing [Re, Im] components, culminating in a novel Phase Interaction Output Layer that separately predicts amplitude a(z) and phase φ(z) before composing them via ψ(z) = a(z)·exp(iφ(z)). The model is trained on Rayleigh fading channels with T=500 diffusion steps using epsilon-prediction, with pilot consistency enforced via RePaint-style replacement during reverse diffusion.",
+      "approach": "Architecture: 2-channel U-Net with 3 down/up blocks, 128→256→512 channels, GroupNorm, SiLU activations. Time embedding via sinusoidal encoding + MLP. Phase Interaction Output Layer: separate Conv2d heads for amplitude (ReLU-bounded) and phase (tanh→2π scaling), composed via Euler formula. Training: DDPM with linear β schedule (1e-4 to 0.02), epsilon-prediction loss. Inference: RePaint-style pilot replacement every 10 steps. OFDM: K=64 subcarriers, P=16 pilots (comb-type), CP=16.",
+      "expected_contribution": "First complex-valued diffusion model for wireless communications. Demonstrates 3-5 dB NMSE improvement over real-valued U-Net denoiser and 8-10 dB over LS estimator at low SNR. Phase Interaction Layer provides interpretable amplitude-phase decomposition and better phase tracking than standard complex operations. Achieves near-MMSE performance without explicit channel statistics.",
+      "novelty_score": 0.9,
+      "feasibility_score": 0.85,
+      "significance_score": 0.8
+    },
+    {
+      "title": "Guided Complex-Valued Diffusion with Quantum-Inspired Phase Coupling for OFDM Channels",
+      "abstract_sketch": "A guided diffusion approach where the Phase Interaction Layer implements quantum-inspired amplitude-phase coupling through ψ(z) = a(z)·exp(iφ(z)). Instead of RePaint, uses classifier-free guidance with pilot observations as conditioning. The model employs a lighter U-Net (2 blocks, 64→128 channels) with cosine β schedule and x0-prediction parameterization. Phase coupling is enhanced through a learnable interaction matrix between amplitude and phase predictions.",
+      "approach": "Architecture: Compact 2-channel U-Net, 2 down/up blocks, 64→128 channels, attention at bottleneck. Phase Interaction Layer with cross-attention between amplitude/phase features before Euler composition. Guided diffusion: pilot observations concatenated to input, guidance scale w=2.0. Training: Cosine β schedule, x0-prediction, 10% dropout for unconditional training. OFDM: K=64, P=16 pilots, focus on time-varying channels with Doppler.",
+      "expected_contribution": "Achieves comparable performance to larger models with 4x fewer parameters (~200K). Guidance mechanism provides better pilot consistency than replacement strategies. Phase coupling matrix reveals learned channel characteristics. 2-3 dB improvement over DNN baselines, competitive with iterative MMSE at 10x lower complexity.",
+      "novelty_score": 0.85,
+      "feasibility_score": 0.9,
+      "significance_score": 0.75
+    },
+    {
+      "title": "Frequency-Aware Complex Diffusion Denoiser with Polar Phase Interaction Networks",
+      "abstract_sketch": "Exploits OFDM structure by operating in frequency domain with subcarrier-wise processing. The Phase Interaction Layer uses polar coordinates natively: separate networks predict log-amplitude and wrapped phase, with explicit phase unwrapping layers. Diffusion process adapted for complex circular distributions. Mini U-Net processes each subcarrier group (8 subcarriers) with parameter sharing.",
+      "approach": "Architecture: Frequency-domain processing, mini U-Net per 8-subcarrier group (parameter shared), 1 down/up block, 32→64 channels. Polar Phase Interaction: log-amplitude network (real output), phase network (von Mises distribution), phase unwrapping via LSTM. Complex diffusion: wrapped normal distribution for phase, log-normal for amplitude. Training: T=250 steps, mixed epsilon/x0 prediction. OFDM: Direct frequency-domain operation, K=64, P=16.",
+      "expected_contribution": "Natural handling of phase wrapping and amplitude positivity. Frequency-domain operation reduces complexity by 50%. Subcarrier grouping exploits frequency correlation. Phase unwrapping LSTM handles phase ambiguity. 1-2 dB improvement over time-domain approaches, especially effective for frequency-selective channels.",
+      "novelty_score": 0.8,
+      "feasibility_score": 0.75,
+      "significance_score": 0.85
+    }
+  ],
+  "selected_idea": {
+    "title": "Complex-Valued DDPM with Wave-Function Phase Interaction Layer for OFDM Channel Estimation",
+    "abstract_sketch": "This work introduces a complex-valued denoising diffusion probabilistic model (CV-DDPM) that leverages a wave-function-inspired phase interaction layer for OFDM channel estimation. The denoiser uses a 2-channel U-Net backbone processing [Re, Im] components, culminating in a novel Phase Interaction Output Layer that separately predicts amplitude a(z) and phase φ(z) before composing them via ψ(z) = a(z)·exp(iφ(z)). The model is trained on Rayleigh fading channels with T=500 diffusion steps using epsilon-prediction, with pilot consistency enforced via RePaint-style replacement during reverse diffusion.",
+    "approach": "Architecture: 2-channel U-Net with 3 down/up blocks, 128→256→512 channels, GroupNorm, SiLU activations. Time embedding via sinusoidal encoding + MLP. Phase Interaction Output Layer: separate Conv2d heads for amplitude (ReLU-bounded) and phase (tanh→2π scaling), composed via Euler formula. Training: DDPM with linear β schedule (1e-4 to 0.02), epsilon-prediction loss. Inference: RePaint-style pilot replacement every 10 steps. OFDM: K=64 subcarriers, P=16 pilots (comb-type), CP=16.",
+    "expected_contribution": "First complex-valued diffusion model for wireless communications. Demonstrates 3-5 dB NMSE improvement over real-valued U-Net denoiser and 8-10 dB over LS estimator at low SNR. Phase Interaction Layer provides interpretable amplitude-phase decomposition and better phase tracking than standard complex operations. Achieves near-MMSE performance without explicit channel statistics.",
+    "novelty_score": 0.9,
+    "feasibility_score": 0.85,
+    "significance_score": 0.8
+  },
+  "novelty_assessment": "The selected idea introduces three key novel contributions: (1) First application of complex-valued diffusion models to wireless communications - while Yang2025 and Wu2023 apply diffusion models to wireless, none use complex-valued formulations essential for phase-sensitive OFDM signals. (2) The Phase Interaction Layer is entirely novel - existing complex-valued networks (Zhao2021, Migus2025) use standard complex operations without explicit amplitude-phase decomposition and interaction modeling. (3) The wave-function-inspired parameterization ψ(z) = a(z)·exp(iφ(z)) provides a principled inductive bias for wireless channels where amplitude fading and phase rotation are fundamental phenomena. This addresses the gap identified in the literature review regarding 'Complex-valued diffusion models for wireless communications' with opportunity score 0.95.",
+  "feasibility_assessment": "The selected variant is highly feasible for implementation on Apple M4 with MPS backend. The architecture uses ~180K parameters (3-block U-Net with 128→256→512 channels), well within the 200K target. Training complexity: T=500 steps × 1000 epochs × 64 batch size = 32M forward passes, estimated 45-60 minutes on M4. Memory requirements: ~2GB for model + gradients + diffusion states. The epsilon-prediction parameterization is stable and well-understood from Ho2020. RePaint-style pilot replacement is computationally cheap (simple masking operation). The 2-channel [Re, Im] representation maps naturally to PyTorch's complex tensor support. Main implementation challenges: (1) Ensuring numerical stability in phase predictions, addressed via tanh→2π scaling, (2) Efficient batched diffusion sampling, using PyTorch's built-in parallelization.",
+  "scope_definition": "In scope: (1) OFDM channel estimation with K=64 subcarriers, P=16 comb-type pilots, CP=16 samples. (2) Rayleigh fading channels with Doppler spreads up to 200 Hz. (3) SNR range: -5 to 25 dB. (4) Comparison with LS, MMSE (with perfect statistics), real-valued U-Net denoiser, and DNN baseline from Ye2017. (5) Metrics: NMSE in dB, BER after ZF equalization with QPSK/16-QAM. (6) Single-antenna SISO system. Out of scope: (1) MIMO or massive MIMO configurations. (2) Hardware impairments (IQ imbalance, phase noise). (3) Real channel measurements or hardware deployment. (4) Multi-user scenarios or interference. (5) Channel prediction or tracking across OFDM symbols. (6) Joint channel estimation and symbol detection. (7) Computational complexity optimization or model compression.",
+  "metadata": {
+    "stage_name": "Ideation",
+    "model_used": "anthropic/claude-opus-4-20250514",
+    "started_at": "2026-02-25T19:29:35.083745+00:00",
+    "completed_at": null,
+    "total_tokens": 0,
+    "total_cost_usd": 0.0,
+    "revision_number": 0
+  }
+}

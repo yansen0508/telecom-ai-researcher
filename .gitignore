@@ -17,13 +17,31 @@ venv/
 *.swp
 *.swo
 
-# Project outputs
+# Project outputs — runs/ is excluded by default, except the reference run below
+# NOTE: Because the runs/ directory itself is ignored, new files must be added
+# with `git add -f`. The exceptions below document what is tracked.
 runs/
 !runs/.gitkeep
+
+# ── Reference run: 20260225_202351 ComplexUNet OFDM Channel Estimation ──────
+# State files (all 6 stages)
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/pipeline_state.json
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/problem_formulation.json
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/ideation_output.json
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/01_literature_review/literature_review.json
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/02_ideation/ideation.json
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/03_formulation/formulation.json
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/04_experiments/experiments.json
 !runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/04_experiments/code/*.py
 !runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/04_experiments/code/results.json
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/04_experiments/code/training_results.json
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/04_experiments/code/training_curves.json
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/04_experiments/code/README.md
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/05_analysis/analysis.json
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/05_analysis/training_data.json
 !runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/06_manuscript/main.tex
 !runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/06_manuscript/references.bib
+!runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/06_manuscript/manuscript.json
 
 # Environment
 .env
