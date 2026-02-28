@@ -88,7 +88,10 @@ Topic String
 ## Sample Output
 
 **Run:** `20260225_202351_complex-valued-diffusion-denoiser-with-p`
+
 **Topic:** *Complex-Valued Diffusion Denoiser with Phase Interaction Layer for OFDM Channel Estimation*
+
+**Code Guideline:** [runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/04_experiments/code/README.md](./runs/20260225_202351_complex-valued-diffusion-denoiser-with-p/state/04_experiments/code/README.md)
 
 ### Paper Summary
 
