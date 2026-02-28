@@ -8,14 +8,14 @@
 \usepackage{xcolor}
 \usepackage{multirow}
 \usepackage{booktabs}
-% Reduce white space around floats and captions
-\setlength{\floatsep}{3pt plus 1pt minus 1pt}
-\setlength{\textfloatsep}{6pt plus 2pt minus 2pt}
-\setlength{\intextsep}{3pt plus 1pt minus 1pt}
-\setlength{\dblfloatsep}{3pt plus 1pt minus 1pt}
-\setlength{\dbltextfloatsep}{6pt plus 2pt minus 2pt}
-\setlength{\abovecaptionskip}{3pt plus 1pt minus 1pt}
-\setlength{\belowcaptionskip}{-2pt}
+% Reduce white space around floats, captions, and bibliography
+\setlength{\floatsep}{1pt plus 1pt minus 1pt}
+\setlength{\textfloatsep}{2pt plus 1pt minus 1pt}
+\setlength{\intextsep}{1pt plus 1pt minus 1pt}
+\setlength{\dblfloatsep}{1pt plus 1pt minus 1pt}
+\setlength{\dbltextfloatsep}{2pt plus 1pt minus 1pt}
+\setlength{\abovecaptionskip}{1pt plus 1pt minus 1pt}
+\setlength{\belowcaptionskip}{-4pt}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
@@ -23,9 +23,9 @@
 
 \title{Quantum-Inspired Phase Rotation Gate for\\OFDM Channel Estimation via Diffusion Models}
 
-\author{\IEEEauthorblockN{AI Agents}
+\author{\IEEEauthorblockN{AI Agents\thanks{Completed by S.~Yan, Y.~Yang, and M.~Debbah (Digital Future Institute, Khalifa University, UAE), and S.~Lasaulce (CNRS \& Universit\'{e} de Lorraine, CRAN, France).}}
 \IEEEauthorblockA{\textit{Digital Future Institute} \\
-Khalifa University}}
+Khalifa University, UAE}}
 
 \maketitle
 
@@ -349,16 +349,17 @@ The experimental results reveal several important insights:
 
 \textbf{Conditioning Strategy is Critical}: Table~\ref{tab:inference_ablation} demonstrates that the 5-channel direct conditioning strategy is not merely an optimization—it is necessary for the model to function at all. The RePaint failure highlights that diffusion models for estimation tasks must learn conditioning during training; inference-time pilot injection into an unconditionally-trained model produces catastrophic results.
 
-\textbf{SNR-Dependent Gains}: The diffusion models show an interesting SNR-dependent behavior. At high SNR (25 dB), ComplexUNet achieves $-19.79$ dB NMSE, outperforming the DNN baseline ($-18.59$ dB) by 1.2 dB. At low-to-medium SNR, however, the DNN baseline performs comparably or better, suggesting that the diffusion prior is most beneficial when accurate channel structure can be recovered.
+\textbf{SNR-Dependent Gains}: At high SNR (25 dB), ComplexUNet achieves $-19.79$ dB NMSE, outperforming the DNN baseline by 1.2 dB, while the DNN performs comparably at low-to-medium SNR—indicating the diffusion prior is most beneficial when channel structure is recoverable.
 
-\textbf{Phase Rotation Gate}: The marginal average difference between ComplexUNet ($-13.19$ dB) and RealUNet ($-13.43$ dB) indicates that the Rz rotation gate does not consistently improve NMSE. Its primary benefit is architectural: providing a principled complex-valued output layer that avoids the circle constraint of polar parameterizations, potentially yielding advantages in more challenging channel conditions.
+\textbf{Phase Rotation Gate}: The marginal average difference between ComplexUNet ($-13.19$ dB) and RealUNet ($-13.43$ dB) indicates the Rz gate does not consistently improve NMSE, but provides a principled complex-valued output avoiding the circle constraint of polar parameterizations.
 
 \section{Conclusion}
 
 This paper presented ComplexUNet, a diffusion model architecture for OFDM channel estimation incorporating a Quantum Phase Rotation Gate and 5-channel direct conditioning. Our key findings include: (1) The 5-channel conditioning strategy is essential for functional inference—ablation shows RePaint-style pilot replacement causes catastrophic failure (positive NMSE), as it injects out-of-distribution inputs into a model trained on clean forward-diffusion trajectories; (2) DDIM with 200 steps yields ${\sim}1$ dB improvement over 50 steps; (3) The Quantum Phase Rotation Gate avoids the circle constraint of polar parameterizations, though consistent average gains over the RealUNet ablation remain elusive; (4) ComplexUNet outperforms the DNN baseline by 1.2 dB at 25 dB SNR, with the diffusion prior becoming more beneficial as channel structure becomes recoverable.
 
-These results establish an empirical foundation for applying diffusion models to complex-valued OFDM estimation, with particular emphasis on conditioning design as the critical enabling factor. Future work should investigate attention-based conditioning, high-mobility scenarios with Doppler spread, and extensions to MIMO settings.
+These results establish that conditioning design is the critical enabling factor for diffusion-based OFDM estimation. Future work should explore attention-based conditioning, high-mobility channels, and MIMO extensions.
 
+\vspace{-4pt}
 \bibliographystyle{IEEEtran}
 \bibliography{references}
 
