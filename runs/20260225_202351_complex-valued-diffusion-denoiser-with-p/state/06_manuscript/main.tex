@@ -23,7 +23,7 @@
 
 \title{Quantum-Inspired Phase Rotation Gate for\\OFDM Channel Estimation via Diffusion Models}
 
-\author{\IEEEauthorblockN{AI Agents\thanks{Completed by S.~Yan, Y.~Yang, and M.~Debbah (Digital Future Institute, Khalifa University, UAE), and S.~Lasaulce (CNRS \& Universit\'{e} de Lorraine, CRAN, France).}}
+\author{\IEEEauthorblockN{AI Agents\thanks{Submitted to ICMLCN 2026 Experimental Track (Telecom AI Researcher). Developed by Sen Yan, Yuzhi Yang, and Merouane Debbah (Digital Future Institute, Khalifa University, UAE), and Samson Lasaulce (CNRS \& Universit\'{e} de Lorraine, CRAN, France).}}
 \IEEEauthorblockA{\textit{Digital Future Institute} \\
 Khalifa University, UAE}}
 
@@ -162,7 +162,7 @@ The model input is a 5-channel tensor:
 \mathbf{m}_p
 \end{bmatrix} \in \mathbb{R}^{5 \times K}
 \end{equation}
-This representation directly concatenates the noisy channel, LS estimate, and pilot mask as input channels, avoiding the need for iterative pilot replacement during inference.
+This representation directly concatenates the noisy channel, LS estimate, and pilot mask as input channels, avoiding iterative pilot replacement during inference (Fig.~\ref{fig:system}).
 
 \subsubsection{Encoder-Decoder Structure}
 
@@ -223,7 +223,7 @@ During inference, we employ Denoising Diffusion Implicit Models (DDIM) \cite{son
 \end{equation}
 where $\hat{\mathbf{h}}_0$ is the predicted clean channel. We use 200 linearly-spaced inference steps out of the $T = 500$ training steps. Using 200 steps (each spanning ${\sim}2.5$ training timesteps) reduces the subsampling approximation error compared to fewer steps, yielding approximately 1 dB improvement over 50-step inference (see Table~\ref{tab:inference_ablation}).
 
-Critically, we avoid RePaint-style pilot replacement entirely. RePaint injects $\sqrt{\bar{\alpha}_t}\hat{\mathbf{h}}_{\mathrm{LS}} + \sqrt{1{-}\bar{\alpha}_t}\boldsymbol{\varepsilon}$ at pilot positions during inference, but since the denoiser is trained on clean forward-diffusion samples $\mathbf{h}_t$, this creates a severe distribution mismatch at every step. Our ablation shows this causes catastrophic failure—positive NMSE values worse than the LS baseline. The 5-channel direct conditioning strategy eliminates this mismatch by incorporating pilot information as input channels from the start of training.
+Critically, we avoid RePaint-style pilot replacement entirely. RePaint injects $\sqrt{\bar{\alpha}_t}\hat{\mathbf{h}}_{\mathrm{LS}} + \sqrt{1{-}\bar{\alpha}_t}\boldsymbol{\epsilon}$ at pilot positions during inference, but since the denoiser is trained on clean forward-diffusion samples $\mathbf{h}_t$, this creates a severe distribution mismatch at every step. Our ablation shows this causes catastrophic failure—positive NMSE values worse than the LS baseline. The 5-channel direct conditioning strategy eliminates this mismatch by incorporating pilot information as input channels from the start of training.
 
 \section{Simulation Results}
 
@@ -262,7 +262,7 @@ Additionally, we measure bit error rate (BER) after zero-forcing equalization wi
 
 \subsubsection{NMSE Performance}
 
-Figure 1 presents the NMSE performance across different SNR values. The MMSE estimator, with perfect channel statistics, provides the theoretical lower bound with an average NMSE of -18.27 dB. Among practical methods, the simple DNN baseline achieves -14.05 dB, while our ComplexUNet achieves -13.19 dB and RealUNet achieves -13.43 dB.
+Figure~\ref{fig:nmse} presents the NMSE performance across different SNR values. The MMSE estimator, with perfect channel statistics, provides the theoretical lower bound with an average NMSE of -18.27 dB. Among practical methods, the simple DNN baseline achieves -14.05 dB, while our ComplexUNet achieves -13.19 dB and RealUNet achieves -13.43 dB.
 
 \begin{figure}[t]
 \centering
@@ -271,7 +271,7 @@ Figure 1 presents the NMSE performance across different SNR values. The MMSE est
 \label{fig:nmse}
 \end{figure}
 
-Table I provides detailed NMSE results at each SNR point. Notably, ComplexUNet shows slight improvements over RealUNet at medium SNR (10-15 dB) but underperforms at low and high SNR regimes. This suggests that the Quantum Phase Rotation Gate may be most beneficial in moderate noise conditions where phase relationships are neither completely obscured nor trivially preserved.
+Table~\ref{tab:nmse_comparison} provides detailed NMSE results at each SNR point. Notably, ComplexUNet shows slight improvements over RealUNet at medium SNR (10-15 dB) but underperforms at low and high SNR regimes. This suggests that the Quantum Phase Rotation Gate may be most beneficial in moderate noise conditions where phase relationships are neither completely obscured nor trivially preserved.
 
 \begin{table}[t]
 \centering
@@ -294,7 +294,7 @@ ComplexUNet & -5.88 & -9.35 & -13.64 & -17.29 & -19.79 & -13.19 \\
 
 \subsubsection{BER Performance}
 
-Figure 2 shows the BER performance after zero-forcing equalization. All methods exhibit similar trends, with MMSE achieving the lowest error rates as expected. The diffusion-based methods (ComplexUNet and RealUNet) perform comparably to the DNN baseline, indicating that while they do not significantly improve channel estimation accuracy, they maintain acceptable symbol detection performance.
+Figure~\ref{fig:ber} shows the BER performance after zero-forcing equalization. All methods exhibit similar trends, with MMSE achieving the lowest error rates as expected. The diffusion-based methods (ComplexUNet and RealUNet) perform comparably to the DNN baseline, indicating that while they do not significantly improve channel estimation accuracy, they maintain acceptable symbol detection performance.
 
 \begin{figure}[t]
 \centering

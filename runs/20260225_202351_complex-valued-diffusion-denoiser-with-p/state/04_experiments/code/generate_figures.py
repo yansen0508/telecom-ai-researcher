@@ -209,7 +209,7 @@ draw_box(ax_left, 5.0, 5.4, 2.8, 0.80,
 draw_box(ax_left, 5.0, 3.9, 5.8, 0.90, '5-Channel Input', color='#d0e4f7', fontsize=7.0)
 draw_arrow(ax_left, 5.0, 5.0, 5.0, 4.35)
 # noise input
-ax_left.text(1.5, 4.3, 'Noise $\\boldsymbol{\\varepsilon}_t$', ha='center', va='center',
+ax_left.text(1.5, 4.3, 'Noise $\\boldsymbol{\\epsilon}_t$', ha='center', va='center',
              fontsize=6.0, color='#666666',
              bbox=dict(boxstyle='round,pad=0.2', facecolor='#eeeeee', edgecolor='#aaaaaa', lw=0.6))
 ax_left.annotate('', xy=(2.1, 3.95), xytext=(2.1, 4.15),
@@ -217,7 +217,7 @@ ax_left.annotate('', xy=(2.1, 3.95), xytext=(2.1, 4.15),
 
 # Row 4: ComplexUNet denoiser
 draw_box(ax_left, 5.0, 2.5, 4.6, 0.80,
-         'ComplexUNet Denoiser $\\boldsymbol{\\varepsilon}_\\theta$', color='#cfe2f3', fontsize=6.5)
+         'ComplexUNet Denoiser $\\boldsymbol{\\epsilon}_\\theta$', color='#cfe2f3', fontsize=6.5)
 draw_arrow(ax_left, 5.0, 3.45, 5.0, 2.90)
 
 # Row 5: Output
