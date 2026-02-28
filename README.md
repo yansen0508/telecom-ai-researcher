@@ -31,7 +31,7 @@ From one command, the pipeline:
 1. **Searches** arXiv and Semantic Scholar for 15+ relevant papers and synthesises a gap analysis
 2. **Brainstorms** three candidate research ideas and selects the most promising one
 3. **Formalises** the mathematical problem statement, system model, and proposed method
-4. **Implements** working Python/PyTorch code, trains models, and produces numerical results
+4. **Implements** working Python/PyTorch code, trains models, and produces numerical results (update: for the safety reason, this step needs human confirmation and executes in programing IDE such as pycharm/VS Code rather than automatically run in Claude `code_executor`)
 5. **Analyses** results, generates IEEE-style figures, and writes a detailed analysis report
 6. **Writes** a complete IEEE conference paper (LaTeX), compiles it with `tectonic`, and outputs a PDF
 
