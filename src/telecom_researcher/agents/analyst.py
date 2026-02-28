@@ -10,7 +10,7 @@ from telecom_researcher.agents.base import BaseAgent
 
 class AnalystAgent(BaseAgent):
     name = "analyst"
-    max_iterations = 15
+    max_iterations = 25
 
     def __init__(self, prompts_dir: Path | None = None, **kwargs: Any):
         super().__init__(**kwargs)
