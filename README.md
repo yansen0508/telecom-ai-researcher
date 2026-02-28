@@ -92,7 +92,7 @@ Topic String
 
 ### Paper Summary
 
-The pipeline autonomously produced a complete 6-page IEEE ICMLCN 2026 submission:
+The pipeline autonomously produced a complete 6-page IEEE ICMLCN 2026 experimental track (Telecom AI Researcher Track CALL FOR (AI) PAPERS) :
 
 - **Proposed method:** ComplexUNet — a U-Net denoiser with 5-channel conditioning (`[Re(hₜ), Im(hₜ), Re(ĥ_LS), Im(ĥ_LS), mₚ]`) and a novel **Quantum Phase Rotation Gate** output layer (Rz matrix parameterisation)
 - **Inference:** DDIM with 200 deterministic steps; ablation shows DDPM+RePaint yields *positive* NMSE (catastrophic failure due to train–test distribution mismatch)
