@@ -35,7 +35,7 @@ From one command, the pipeline:
 5. **Analyses** results, generates IEEE-style figures, and writes a detailed analysis report
 6. **Writes** a complete IEEE conference paper (LaTeX), compiles it with `tectonic`, and outputs a PDF
 
-Total cost for a full run: **~\$14–20** (Claude Sonnet + Opus + GPT-4o).
+Total cost for a full run: **~\$14–100** (Claude Sonnet + Opus + GPT-4o).
 Total time: **~2–4 hours** (dominated by model training in Stage 4).
 
 ---
